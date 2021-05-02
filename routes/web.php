@@ -14,5 +14,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/entrar', function () {
+    return view('login');
+})->name('entrar');
+
+Route::get('/cadastrar', function(){
+    return view('registro');
+});
+
+Route::get('/termos-uso', function(){
+    return view('termos-uso');
+});
+
+Route::get('/contato', function(){
+    return view('contato');
+});
+
+Route::prefix('usuario')->group(function () {
+    Route::post('entrar', 'UserController@login')->name('login');
+    Route::post('cadastrar', 'UserController@register')->name('register');
+});
+
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('/', function () {
+        return view('admin.index');
+    });
 });
