@@ -101,16 +101,44 @@ let optionsIndonesia = {
 	colors: ['#dc3545'],
 }
 
+$('#customFile')[0].addEventListener("change", function(){
+	$('#archives').html($('#customFile').val().replace(/C:\\fakepath\\/i, ''));
+});
+(function () {
+'use strict'
 
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+var forms = document.querySelectorAll('.needs-validation')
 
-var chartProfileVisit = new ApexCharts(document.querySelector("#chart-profile-visit"), optionsProfileVisit);
-var chartVisitorsProfile = new ApexCharts(document.getElementById('chart-visitors-profile'), optionsVisitorsProfile)
-var chartEurope = new ApexCharts(document.querySelector("#chart-europe"), optionsEurope);
-var chartAmerica = new ApexCharts(document.querySelector("#chart-america"), optionsAmerica);
-var chartIndonesia = new ApexCharts(document.querySelector("#chart-indonesia"), optionsIndonesia);
+// Loop over them and prevent submission
+Array.prototype.slice.call(forms)
+.forEach(function (form) {
+  form.addEventListener('submit', function (event) {
+	if (!form.checkValidity()) {
+	  event.preventDefault()
+	  event.stopPropagation()
+	}
 
-chartIndonesia.render();
-chartAmerica.render();
-chartEurope.render();
-chartProfileVisit.render();
-chartVisitorsProfile.render()
+	form.classList.add('was-validated')
+  }, false)
+})
+})()
+$('#medico').select2({
+	language: "pt-BR",
+	placeholder: 'Digite o Nome do Médico',
+	ajax:{
+	  url: "",
+	  dataType: "json",
+	  processResults: function (data) {
+		return {
+		  results:  $.map(data, function (item) {
+			return {
+			  text: item.nome,
+			  id: item.id
+			}
+		  })
+		};
+	  },
+	  cache: true,
+	}
+  });

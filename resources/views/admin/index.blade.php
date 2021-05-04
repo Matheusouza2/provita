@@ -1,54 +1,107 @@
-@extends('templates.admin')
+@extends('templates.head')
 @section('content')
 <body>
-  <div id="app">
-    <div id="sidebar" class="active">
-      <div class="sidebar-wrapper active">
-        <div class="sidebar-header">
-          <div class="d-flex justify-content-between">
-            <div class="logo">
-              <a href="/admin"><img src="{{ asset('site/img/logo-white.svg') }}" alt="Logo"></a>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                        <a href="/admin"><img src="{{ asset('site/img/logo-white.svg') }}" alt="Logo"></a>
+                        </div>
+                        <div class="toggler">
+                        <a href="#" class="sidebar-hide d-xl-none d-block text-white"><i class="fal fa-times"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-item active">
+                        <a href="/admin" class='sidebar-link'>
+                            <i class="fas fa-home"></i>
+                            <span>Início</span>
+                        </a>
+                        </li>
+                        <li class="sidebar-item">
+                        <a href="/admin" class='sidebar-link'>
+                            <i class="fas fa-procedures"></i>
+                            <span>Pacientes</span>
+                        </a>
+                        </li>
+                        <li class="sidebar-item">
+                        <a href="/admin" class='sidebar-link'>
+                            <i class="fas fa-vial"></i>
+                            <span>Laboratórios</span>
+                        </a>
+                        </li>
+                        <li class="sidebar-item">
+                        <a href="/admin" class='sidebar-link'>
+                            <i class="fal fa-sign-out"></i>
+                            <span>Sair</span>
+                        </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="toggler">
-              <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+        </div>
+        <!-- End SideBar-->
+        <!-- Start Modal Exames-->
+        <div class="modal fade text-left" id="primary" tabindex="-1" aria-labelledby="myModalLabel160" style="display: none" aria-modal="true" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-color">
+                        <h5 class="modal-title white" id="myModalLabel160">
+                            Envio de Exame
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/admin" method="get" class="needs-validation" novalidate>
+                            <div class="form-group mb-3 col-lg-8">
+                                <label class="form-control-label" for="medico">Paciente</label>
+                                <div class="input-group input-group-merge input-group-alternative">
+                                  <select class="form-control" name="doctor" id="medico" required></select>
+                                  <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3 col-lg-8">
+                                <label class="form-control-label" for="lab">Laboratório</label>
+                                <div class="input-group input-group-merge input-group-alternative">
+                                  <select class="form-control" name="lab" id="lab" required></select>
+                                  <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3 col-lg-8">
+                                <label class="form-control-label" for="customFile">Exame</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile" required>
+                                    <label class="custom-file-label" for="customFile">Procurar Exame</label>
+                                    <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
+                                  </div>
+                            </div>
+                            <div>
+                                <span class="text-muted" id="archives"></span>
+                            </div>
+                            <div class="text-right">
+                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Cancelar</span>
+                                </button>
+                                <button type="submit" class="btn btn-light-success ml-1">
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Enviar</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="sidebar-menu">
-          <ul class="menu">
-            <li class="sidebar-item active">
-              <a href="/admin" class='sidebar-link'>
-                <i class="fas fa-home"></i>
-                <span>Início</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a href="/admin" class='sidebar-link'>
-                <i class="fas fa-procedures"></i>
-                <span>Pacientes</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a href="/admin" class='sidebar-link'>
-                <i class="fas fa-vial"></i>
-                <span>Laboratórios</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a href="/admin" class='sidebar-link'>
-                <i class="fal fa-sign-out"></i>
-                <span>Sair</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
-      </div>
-    </div>
-    <div id="main">
+        <!-- End Modal Exames -->
+        <!-- Start Main div -->
+        <div id="main">
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
-                    <i class="bi bi-justify fs-3"></i>
+                    <i class="fal fa-align-right fa-2x"></i>
                 </a>
             </header>
 
@@ -135,121 +188,24 @@
                                         <h4>Últimos Exames</h4>
                                     </div>
                                     <div class="card-body">
-                                        <div id="chart-profile-visit"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-xl-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Profile Visit</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex align-items-center">
-                                                    <svg class="bi text-primary" width="32" height="32" fill="blue"
-                                                        style="width:10px">
-                                                        <use
-                                                            xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                                    </svg>
-                                                    <h5 class="mb-0 ms-3">Europe</h5>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <h5 class="mb-0">862</h5>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="chart-europe"></div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex align-items-center">
-                                                    <svg class="bi text-success" width="32" height="32" fill="blue"
-                                                        style="width:10px">
-                                                        <use
-                                                            xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                                    </svg>
-                                                    <h5 class="mb-0 ms-3">America</h5>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <h5 class="mb-0">375</h5>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="chart-america"></div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex align-items-center">
-                                                    <svg class="bi text-danger" width="32" height="32" fill="blue"
-                                                        style="width:10px">
-                                                        <use
-                                                            xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                                    </svg>
-                                                    <h5 class="mb-0 ms-3">Indonesia</h5>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <h5 class="mb-0">1025</h5>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="chart-indonesia"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-xl-8">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Latest Comments</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover table-lg">
+                                       <div class="table-responsive">
+                                           <table class="table table-hover table-md">
                                                 <thead>
                                                     <tr>
-                                                        <th>Name</th>
-                                                        <th>Comment</th>
+                                                        <th>Paciente</th>
+                                                        <th>Laboratório</th>
+                                                        <th>Download</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td class="col-3">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="avatar avatar-md">
-                                                                    <img src="assets/images/faces/5.jpg">
-                                                                </div>
-                                                                <p class="font-bold ms-3 mb-0">Si Cantik</p>
-                                                            </div>
-                                                        </td>
-                                                        <td class="col-auto">
-                                                            <p class=" mb-0">Congratulations on your graduation!</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="col-3">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="avatar avatar-md">
-                                                                    <img src="assets/images/faces/2.jpg">
-                                                                </div>
-                                                                <p class="font-bold ms-3 mb-0">Si Ganteng</p>
-                                                            </div>
-                                                        </td>
-                                                        <td class="col-auto">
-                                                            <p class=" mb-0">Wow amazing design! Can you make another
-                                                                tutorial for
-                                                                this design?</p>
-                                                        </td>
+                                                        <td class="col-auto"><i class="fas fa-user"></i> Nome paciente</td>
+                                                        <td class="col-auto">Laboratório</td>
+                                                        <td><a href="" title="Baixar exame"><i class="fas fa-download"></i></a></td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
-                                        </div>
+                                           </table>
+                                       </div>
                                     </div>
                                 </div>
                             </div>
@@ -264,16 +220,16 @@
                                     </div>
                                     <div class="col-lg-6">
                                       <a href="" class="btn btn-block font-bold btn-light-primary btn-sm">Cadastrar Laboratório</a>
-                                      <a href="" class="btn btn-block font-bold btn-light-info btn-sm">Enviar Exame</a>
+                                      <a href="javascript:void(0)" class="btn btn-block font-bold btn-light-info btn-sm" data-toggle="modal" data-target="#primary">Enviar Exame</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <h4>Parceiros</h4>
+                                <h4>Laboratórios Parceiros</h4>
                             </div>
-                            <div class="card-content pb-4">
+                            <div class="card-body">
                               <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="5000">
                                 <div class="carousel-inner">
                                   <div class="carousel-item active">
@@ -293,14 +249,12 @@
                 </section>
             </div>
 
-            <footer>
+            <footer style="position: fixed;  bottom: 0;">
                 <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
-                    </div>
-                    <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="http://ahmadsaugi.com">A. Saugi</a></p>
+                    <div class="row">
+                        <div class="float-start">
+                            <p>2021 &copy; Provita  </p>
+                        </div>                        
                     </div>
                 </div>
             </footer>

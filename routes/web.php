@@ -50,3 +50,13 @@ Route::prefix('admin')->group(function () {
         return view('admin.index');
     });
 });
+
+/**
+ * ROTAS DO USUARIO
+ */
+//middleware(['auth'])->
+Route::prefix('usuario')->group(function(){
+   Route::get('/', function () {
+       return view('user.index');
+   }); 
+});
