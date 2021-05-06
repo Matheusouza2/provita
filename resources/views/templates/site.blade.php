@@ -12,9 +12,28 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head> 
 @yield('content')
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-
+@error('erro')
+    <script>
+        Swal.fire({
+            title: 'Erro',
+            text: '{{ session('errors')->first('erro') }}',
+            icon: 'error',
+        });
+    </script>
+@enderror
+@if(session()->has('success'))
+	<script>
+		Swal.fire({
+			title: 'Tudo OK !!',
+			text: '{{ session()->get('success') }}',
+			icon: 'success',
+		});
+	</script>
+@endif
 <script>
 	 $(document).ready(function(){
         $('#doc').mask('000.000.000-00');

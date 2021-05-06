@@ -20,9 +20,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/entrar', function () {
-    return view('login');
-})->name('entrar');
+Route::get('/entrar', 'SiteController@entrar')->name('entrar');
 
 Route::get('/cadastrar', function(){
     return view('registro');
@@ -36,27 +34,41 @@ Route::get('/contato', function(){
     return view('contato');
 });
 
-Route::prefix('usuario')->group(function () {
-    Route::post('entrar', 'UserController@login')->name('login');
-    Route::post('cadastrar', 'UserController@register')->name('register');
-});
+//Rota de Login
+Route::post('/login', 'UserController@login')->name('login');
+    
+//Rota de Cadastro
+Route::post('/register', 'UserController@register')->name('register');
 
+//Rota de Logout
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/admin');
+});
 /**
  * ROTAS DO ADMIN
  */
-//middleware(['auth'])->
-Route::prefix('admin')->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.index');
-    });
+    })->name('adminIndex');
 });
 
 /**
  * ROTAS DO USUARIO
  */
-//middleware(['auth'])->
-Route::prefix('usuario')->group(function(){
-   Route::get('/', function () {
-       return view('user.index');
-   }); 
+Route::middleware(['auth', 'user'])->prefix('usuario')->group(function(){
+        
+    //Rota para o Index
+    Route::get('/', function () {
+        return view('user.index');
+    })->name('userIndex'); 
+    
+    //Rota para a tela da primeira dose do Covid
+    Route::get('/primeira-dose', 'UserController@dose1')->name('dose1');
+
+    Route::get('/primeira-dose/getImg', 'ArquivosController@getImg');
+    
+    //Rota para upload das imagens do Covid
+    Route::post('usuario/primeira-dose/upload', 'ArquivosController@UploadImage')->name('uploadImage');
 });

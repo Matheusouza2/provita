@@ -100,7 +100,28 @@ let optionsIndonesia = {
 	...optionsEurope,
 	colors: ['#dc3545'],
 }
-
+var url = window.location.href;
+    var absoluto = url.split("/")[url.split("/").length - 1];
+	var lista = null;
+    switch (absoluto) {
+    	case 'admin':
+        	lista = document.querySelector('#admin');
+            lista.classList.add('active');
+            break;
+        case 'usuario':
+            lista = document.querySelector('#usuario');
+            lista.classList.add('active');
+            break;
+        case 'primeira-dose':
+            lista = document.querySelector('#primeira-dose');
+            lista.classList.add('active');
+            break;
+        case 'calendario':
+        	lista = document.querySelector('#segunda-dose');
+            lista.classList.add('active');
+            break;
+}
+		
 $('#customFile')[0].addEventListener("change", function(){
 	$('#archives').html($('#customFile').val().replace(/C:\\fakepath\\/i, ''));
 });

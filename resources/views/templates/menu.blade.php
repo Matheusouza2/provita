@@ -12,20 +12,20 @@
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
-                <li class="sidebar-item active">
-                <a href="/admin" class='sidebar-link'>
+                <li class="sidebar-item" id="usuario">
+                <a href="/usuario" class='sidebar-link'>
                     <i class="fas fa-home"></i>
                     <span>Início</span>
                 </a>
                 </li>
-                <li class="sidebar-item">
-                <a href="/admin" class='sidebar-link'>
+                <li class="sidebar-item" id="primeira-dose">
+                <a href="{{ route('dose1') }}" class='sidebar-link'>
                     <i class="fal fa-syringe"></i><sup>1</sup>
                     <span>Covid 1ª Dose</span>
                 </a>
                 </li>
                 <li class="sidebar-item">
-                <a href="/admin" class='sidebar-link'>
+                <a href="/admin" class='sidebar-link' id="segunda-dose">
                     <i class="fal fa-syringe"></i><sup>2</sup>
                     <span>Covid 2ª Dose</span>
                 </a>
@@ -37,7 +37,7 @@
                     </a>
                     </li>
                 <li class="sidebar-item">
-                <a href="/admin" class='sidebar-link'>
+                <a href="/logout" class='sidebar-link'>
                     <i class="fal fa-sign-out"></i>
                     <span>Sair</span>
                 </a>

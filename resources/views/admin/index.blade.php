@@ -35,7 +35,7 @@
                         </a>
                         </li>
                         <li class="sidebar-item">
-                        <a href="/admin" class='sidebar-link'>
+                        <a href="/logout" class='sidebar-link'>
                             <i class="fal fa-sign-out"></i>
                             <span>Sair</span>
                         </a>
@@ -76,7 +76,7 @@
                                     <input type="file" class="custom-file-input" id="customFile" required>
                                     <label class="custom-file-label" for="customFile">Procurar Exame</label>
                                     <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
-                                  </div>
+                                </div>
                             </div>
                             <div>
                                 <span class="text-muted" id="archives"></span>

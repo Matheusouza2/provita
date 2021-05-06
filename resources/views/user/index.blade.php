@@ -178,10 +178,10 @@
                             <div class="card-body py-6 px-5">
                                 <div class="d-flex align-items-center">
                                     <div class="ms-3 name">
-                                        <h5 class="font-bold">Usuario Logado</h5>
+                                        <h5 class="font-bold">{{ Auth::user()->nome }}</h5>
                                     </div>
                                     <div class="col-lg-6">
-                                      <a href="" class="btn btn-block font-bold btn-light-primary btn-sm">Sair</a>
+                                      <a href="/logout" class="btn btn-block font-bold btn-light-primary btn-sm">Sair</a>
                                     </div>
                                 </div>
                             </div>

@@ -39,7 +39,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="form-control-label" for="born">Data de nascimento</label>
-                                        <input type="text" value="{{ old('nascimento') }}" id="born" name="nascimento" class="form-control" placeholder="Data Nascimento">
+                                        <input type="text" value="{{ old('nascimento') }}" id="born" name="nascimento" class="form-control" placeholder="Data de Nascimento">
                                         @error('nascimento')
                                             <div class="alert-danger">{{ $message }}</div>
                                         @enderror
@@ -50,8 +50,8 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="form-control-label" for="pwd">Senha</label>
-                                        <input type="password" value="{{ old('senha') }}" id="pwd" name="senha" class="form-control" placeholder="Senha">
-                                        @error('senha')
+                                        <input type="password" value="{{ old('senha') }}" id="pwd" name="password" class="form-control" placeholder="Senha">
+                                        @error('password')
                                             <div class="alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>

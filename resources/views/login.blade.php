@@ -11,13 +11,13 @@
             <div class="col-xl-4 order-xl-1">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('register') }}" method="post">
+                        <form action="{{ route('login') }}" method="post">
                             @csrf
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="form-control-label" for="doc">CPF</label>
-                                        <input type="text" value="{{ old('cpf') }}" id="doc" name="cpf" class="form-control" placeholder="CPF">
+                                        <input type="text" value="{{ old('cpf') }}" id="" name="cpf" class="form-control" placeholder="CPF">
                                         @error('cpf')
                                             <div class="alert-danger">{{ $message }}</div>
                                         @enderror
@@ -28,8 +28,8 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="form-control-label" for="pwd">Senha</label>
-                                        <input type="password" value="{{ old('senha') }}" id="pwd" name="senha" class="form-control" placeholder="Senha">
-                                        @error('senha')
+                                        <input type="password" value="{{ old('senha') }}" id="pwd" name="password" class="form-control" placeholder="Senha">
+                                        @error('password')
                                             <div class="alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
