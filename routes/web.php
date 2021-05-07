@@ -52,6 +52,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.index');
     })->name('adminIndex');
+
+    Route::get('/pacientes', 'AdminController@pacientes')->name('pacientes');
+
+    Route::get('/laboratorios', 'AdminController@labs')->name('labs');
 });
 
 /**
@@ -66,9 +70,14 @@ Route::middleware(['auth', 'user'])->prefix('usuario')->group(function(){
     
     //Rota para a tela da primeira dose do Covid
     Route::get('/primeira-dose', 'UserController@dose1')->name('dose1');
-
-    Route::get('/primeira-dose/getImg', 'ArquivosController@getImg');
     
-    //Rota para upload das imagens do Covid
-    Route::post('usuario/primeira-dose/upload', 'ArquivosController@UploadImage')->name('uploadImage');
+    //Rota para a tela da segunda dose do Covid
+    Route::get('/segunda-dose', 'UserController@dose2')->name('dose2');
+
+    //Rota para a tela da carteira de vacinação
+    Route::get('/carteira-vacinacao', 'UserController@carteiraVacina')->name('carteiraVacina');
+
+    
+    //Rota para upload de arquivos
+    Route::post('usuario/arquivo/upload', 'ArquivosController@UploadImage')->name('uploadImage');
 });

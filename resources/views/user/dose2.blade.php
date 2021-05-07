@@ -27,7 +27,7 @@
                                     <div class="card-body">
                                         <form action="{{ route('uploadImage') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
-                                            <input type="hidden" value="1dose" name="apelido">
+                                            <input type="hidden" value="2dose" name="apelido">
                                             <div class="custom-file mt-4">
                                                 <input type="file" class="custom-file-input" id="customFile" name="image" required>
                                                 <label class="custom-file-label" for="customFile">Procurar Imagem</label>
@@ -51,7 +51,7 @@
                             <div class="col-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Vacina do Codvid 1ª Dose</h4>
+                                        <h4>Vacina do Codvid 2ª Dose</h4>
                                     </div>
                                     <div class="card-body">
                                         @if ($image != null)

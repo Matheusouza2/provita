@@ -1,4 +1,4 @@
-@extends('templates.head')
+@extends('templates.headuser')
 @section('content')
 <body>
     <div id="app">

@@ -1,6 +1,22 @@
 @extends('templates.site')
 @section('content')
 <body class="login-provita">
+    <div class="row justify-content-center align-items-center">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="5000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <h3>Publicidade.</h3>
+                    <!--<img class="d-block" src="{{ asset('site/img/logo.svg') }}" width="700px" height="150px" alt="First slide"> -->
+                </div>
+                <div class="carousel-item">
+                    <h3>Publicidade..</h3>
+                </div>
+                <div class="carousel-item">
+                    <h3>Publicidade...</h3>
+                </div>
+            </div>
+        </div>
+    </div>
     <a href="/" class="logo-login"><img class="logo-img" src="{{asset('site/img/logo.svg')}}" alt="logo-provita" style="justify-content: center;"></a>
     <p class="subtitulo">
         A Provita facilita você a se conectar e ter acesso a todos 

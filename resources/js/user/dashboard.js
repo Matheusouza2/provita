@@ -104,10 +104,6 @@ var url = window.location.href;
     var absoluto = url.split("/")[url.split("/").length - 1];
 	var lista = null;
     switch (absoluto) {
-    	case 'admin':
-        	lista = document.querySelector('#admin');
-            lista.classList.add('active');
-            break;
         case 'usuario':
             lista = document.querySelector('#usuario');
             lista.classList.add('active');
@@ -116,16 +112,19 @@ var url = window.location.href;
             lista = document.querySelector('#primeira-dose');
             lista.classList.add('active');
             break;
-        case 'calendario':
+        case 'segunda-dose':
         	lista = document.querySelector('#segunda-dose');
             lista.classList.add('active');
-            break;
+			break;
+		case 'carteira-vacinacao':
+			lista = document.querySelector('#carteira-vacinacao');
+            lista.classList.add('active');
+			break;
 }
 		
 $('#customFile')[0].addEventListener("change", function(){
 	$('#archives').html($('#customFile').val().replace(/C:\\fakepath\\/i, ''));
 });
-
 (function () {
 'use strict'
 
@@ -140,27 +139,8 @@ Array.prototype.slice.call(forms)
 	  event.preventDefault()
 	  event.stopPropagation()
 	}
+
 	form.classList.add('was-validated')
   }, false)
 })
 })()
-
-$('#medico').select2({
-	language: "pt-BR",
-	placeholder: 'Digite o Nome do Médico',
-	ajax:{
-	  url: "",
-	  dataType: "json",
-	  processResults: function (data) {
-		return {
-		  results:  $.map(data, function (item) {
-			return {
-			  text: item.nome,
-			  id: item.id
-			}
-		  })
-		};
-	  },
-	  cache: true,
-	}
-  });

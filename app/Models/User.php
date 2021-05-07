@@ -23,7 +23,18 @@ class User extends Authenticatable
         'cpf',
         'nascimento',
         'password',
-        'nivel'
+        'nivel',
+        'rg',
+        'cep',
+        'logradouro',
+        'bairro',
+        'numero',
+        'cidade',
+        'uf',
+        'email',
+        'sexo',
+        'diabetico',
+        'hipertensao',
     ];
 
     /**

@@ -38,10 +38,10 @@ class UserController extends Controller
     public function register(Request $request)
     {
         $validated = $request->validate([
-            'nome' => ['required'],
-            'cpf' => ['required', 'cpf'],
-            'nascimento' => ['required', 'date_format:"d/m/Y'],
-            'password' => ['required']
+            'cpf' => ['cpf'],
+            'nascimento' => ['date_format:"d/m/Y'],
+            'email' => ['email:rfc,dns','unique:usuarios,email'],
+            'password' => ['min:8']
         ]);
 
         $request['nivel'] = -1;
@@ -137,6 +137,27 @@ class UserController extends Controller
     {
         $image = DB::select('select * from arquivos where id_user = ? AND apelido = ?', [Auth::user()->id, '1dose']);
         
-        return view('user.dose1')->with('image', $image[0]->nome);
+        return view('user.dose1')->with('image', $image);
+    }
+
+    public function dose2()
+    {
+        $image = DB::select('select * from arquivos where id_user = ? AND apelido = ?', [Auth::user()->id, '2dose']);
+        
+        return view('user.dose2')->with('image', $image);
+    }
+
+    public function carteiraVacina()
+    {
+        $image = DB::select('select * from arquivos where id_user = ? AND apelido LIKE ?', [Auth::user()->id, 'carteira%']);
+        return view('user.carteira-vacina')->with('image', $image);
+    }
+
+    public static function mascara($mask, $str){
+        $str = str_replace(" ","",$str);
+        for($i=0;$i<strlen($str);$i++){
+            $mask[strpos($mask,"#")] = $str[$i];
+        }
+        return $mask;
     }
 }

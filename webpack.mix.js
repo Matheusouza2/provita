@@ -26,6 +26,12 @@ mix.styles([
     'resources/js/admin/dashboard.js',
     'resources/js/admin/main.js',
 ], 'public/adm/js/script.js')
+.scripts([
+    'resources/js/user/perfect-scrollbar.min.js',
+    'resources/js/user/dashboard.js',
+    'resources/js/user/main.js',
+    'resources/js/user/custom.js',
+], 'public/user/js/script.js')
 .version();
 
 mix.js('resources/js/app.js', 'public/js')

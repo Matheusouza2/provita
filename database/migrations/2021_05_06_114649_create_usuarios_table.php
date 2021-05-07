@@ -17,13 +17,24 @@ class CreateUsuariosTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->bigInteger('cpf');
+            $table->bigInteger('rg');
             $table->date('nascimento');
+            $table->string('email');
+            $table->string('sexo');
+            $table->integer('diabetico');
+            $table->integer('hipertensao');
+            $table->bigInteger('cep');
+            $table->string('logradouro');
+            $table->integer('numero');
+            $table->string('bairro');
+            $table->string('cidade');
+            $table->string('uf');            
             $table->string('password');
             $table->char('nivel');
             $table->timestamps();
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      *

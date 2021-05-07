@@ -65,103 +65,49 @@
             </header>
 
             <div class="page-heading">
-                <h3>Início</h3>
+                <h3>Pacientes Cadastrados</h3>
             </div>
             <div class="page-content">
                 <section class="row">
                     <div class="col-12 col-lg-9">
                         <div class="row">
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon purple">
-                                                  <i class="far fa-users-medical"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold text-capitalize">Pacientes cadastrados</h6>
-                                                <h6 class="font-extrabold mb-0">112.000</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon blue">
-                                                  <i class="fad fa-clinic-medical"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold text-capitalize">Laboratórios cadastrados</h6>
-                                                <h6 class="font-extrabold mb-0">183.000</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon green">
-                                                  <i class="fas fa-diagnoses"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Exames enviados</h6>
-                                                <h6 class="font-extrabold mb-0">80.000</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon red">
-                                                    <i class="iconly-boldBookmark"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Bloco a pensar</h6>
-                                                <h6 class="font-extrabold mb-0">112</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Últimos Exames</h4>
+                                        <h4>Pacientes</h4>
                                     </div>
                                     <div class="card-body">
                                        <div class="table-responsive">
                                            <table class="table table-hover table-md">
                                                 <thead>
                                                     <tr>
-                                                        <th>Paciente</th>
-                                                        <th>Laboratório</th>
-                                                        <th>Download</th>
+                                                        <th>Nome</th>
+                                                        <th>CPF</th>
+                                                        <th>Data de Nascimento</th>
+                                                        <th>Diabetes</th>
+                                                        <th>Hipertensão</th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td class="col-auto"><i class="fas fa-user"></i> Nome paciente</td>
-                                                        <td class="col-auto">Laboratório</td>
-                                                        <td><a href="" title="Baixar exame"><i class="fas fa-download"></i></a></td>
-                                                    </tr>
+                                                    @foreach ($pacientes as $paciente)
+                                                        <tr>
+                                                            <td class="col-auto">{{ $paciente->nome }}</td>
+                                                            <td class="col-auto">{{ $paciente->cpf }}</td>
+                                                            <td class="col-auto">{{  date( 'd/m/Y' , strtotime($paciente->nascimento)) }}</td>
+                                                            @if($paciente->diabetico)
+                                                                <td class="col-auto">Sim</td>
+                                                            @else
+                                                                <td class="col-auto">Não</td>
+                                                            @endif
+                                                            @if($paciente->hipertensao)
+                                                                <td class="col-auto">Sim</td>
+                                                            @else
+                                                                <td class="col-auto">Não</td>
+                                                            @endif
+                                                            <td><a href="" title="Baixar exame"><i class="fas fa-download"></i></a></td>
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                            </table>
                                        </div>
@@ -182,26 +128,6 @@
                                       <a href="javascript:void(0)" class="btn btn-block font-bold btn-light-info btn-sm" data-toggle="modal" data-target="#primary">Enviar Exame</a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Laboratórios Parceiros</h4>
-                            </div>
-                            <div class="card-body">
-                              <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="5000">
-                                <div class="carousel-inner">
-                                  <div class="carousel-item active">
-                                    <img class="d-block w-100" src="{{ asset('site/img/logo.svg') }}" alt="First slide">
-                                  </div>
-                                  <div class="carousel-item">
-                                    <img class="d-block w-100" src="{{ asset('site/img/doutora.png') }}" alt="Second slide">
-                                  </div>
-                                  <div class="carousel-item">
-                                    <img class="d-block w-100" src="{{ asset('site/img/favicon.png') }}" alt="Third slide">
-                                  </div>
-                                </div>
-                              </div>
                             </div>
                         </div>
                     </div>
