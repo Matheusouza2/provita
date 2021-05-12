@@ -108,12 +108,12 @@ var url = window.location.href;
         	lista = document.querySelector('#admin');
             lista.classList.add('active');
             break;
-        case 'usuario':
-            lista = document.querySelector('#usuario');
+        case 'pacientes':
+            lista = document.querySelector('#pacientes');
             lista.classList.add('active');
             break;
-        case 'primeira-dose':
-            lista = document.querySelector('#primeira-dose');
+        case 'laboratorios':
+            lista = document.querySelector('#labs');
             lista.classList.add('active');
             break;
         case 'calendario':
@@ -143,7 +143,18 @@ Array.prototype.slice.call(forms)
 	form.classList.add('was-validated')
   }, false)
 })
-})()
+})();
+
+$("#cnpj").blur(function () {
+	var cnpj = $(this).val().replace(/\D/g, '');
+	$.ajax({
+		method: "GET",
+		url: "https://www.receitaws.com.br/v1/cnpj/"+cnpj+"/?callback=?",
+		success: function(data){
+			console.log(data);
+		}
+	})
+});
 
 $('#medico').select2({
 	language: "pt-BR",

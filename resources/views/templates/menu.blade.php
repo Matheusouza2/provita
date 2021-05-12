@@ -1,12 +1,12 @@
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active">
-        <div class="sidebar-header">
+        <div class="sidebar-header"> 
             <div class="d-flex justify-content-between">
                 <div class="logo">
                 <a href="/admin"><img src="{{ asset('site/img/logo-white.svg') }}" alt="Logo"></a>
                 </div>
                 <div class="toggler">
-                <a href="#" class="sidebar-hide d-xl-none d-block text-white"><i class="fal fa-times"></i></a>
+                <a href="javascript:void(0)" class="sidebar-hide d-xl-none d-block text-white"><i class="fal fa-times"></i></a>
                 </div>
             </div>
         </div>

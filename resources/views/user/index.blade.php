@@ -7,7 +7,7 @@
         <!-- Start Main div -->
         <div id="main">
             <header class="mb-3">
-                <a href="#" class="burger-btn d-block d-xl-none">
+                <a href="javascript:void(0)" class="burger-btn d-block d-xl-none">
                     <i class="fal fa-align-right fa-2x"></i>
                 </a>
             </header>
@@ -19,7 +19,7 @@
                 <section class="row">
                     <div class="col-12 col-lg-9">
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-sm-6 col-md-6 col-lg-4">
                                 <div class="card">
                                     <div class="card-header">
                                         <h4>Nome do Exame</h4>
@@ -38,7 +38,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-sm-6 col-md-6 col-lg-4">
                                 <div class="card">
                                     <div class="card-header">
                                         <h4>Nome do Exame</h4>
@@ -57,7 +57,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-sm-6 col-md-6 col-lg-4">
                                 <div class="card">
                                     <div class="card-header">
                                         <h4>Nome do Exame</h4>
@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-sm-6 col-md-6 col-lg-4">
                                 <div class="card">
                                     <div class="card-header">
                                         <h4>Nome do Exame</h4>
@@ -95,7 +95,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-sm-6 col-md-6 col-lg-4">
                                 <div class="card">
                                     <div class="card-header">
                                         <h4>Nome do Exame</h4>
@@ -114,45 +114,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Nome do Exame</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href=""><img src="{{ asset('site/img/pdf-icon.png') }}" width="100em;" alt=""></a>
-                                        </div>
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href="">Download do arquivo</a>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        nome do Laboratório <br>
-                                        data
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Nome do Exame</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href=""><img src="{{ asset('site/img/pdf-icon.png') }}" width="100em;" alt=""></a>
-                                        </div>
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href="">Download do arquivo</a>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        nome do Laboratório <br>
-                                        data
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3">
+                            <div class="col-sm-6 col-md-6 col-lg-4">
                                 <div class="card">
                                     <div class="card-header">
                                         <h4>Nome do Exame</h4>
@@ -175,13 +137,26 @@
                     </div>
                     <div class="col-12 col-lg-3">
                         <div class="card">
-                            <div class="card-body py-6 px-5">
-                                <div class="d-flex align-items-center">
-                                    <div class="ms-3 name">
-                                        <h5 class="font-bold">{{ Auth::user()->nome }}</h5>
-                                    </div>
-                                    <div class="col-lg-6">
-                                      <a href="/logout" class="btn btn-block font-bold btn-light-primary btn-sm">Sair</a>
+                            <div class="card-body">
+                                <div class="align-items-center">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6 col-lg-8">
+                                            <h5 class="font-bold">{{ Auth::user()->nome }}</h5>
+                                            @php
+                                                $mask = '###.###.###-##';
+                                                $str = Auth::user()->cpf;
+                                                $str = str_replace(" ","",$str);
+                                                for($i=0;$i<strlen($str);$i++){
+                                                    $mask[strpos($mask,"#")] = $str[$i];
+                                                }
+                                            @endphp     
+                                            <small>CPF:{{ $mask }}</small>
+                                        </div>
+                                        <div class="col-sm-2 col-md-2 col-lg-4 ">
+                                            <div class="text-right">
+                                                <a href="/logout" class="btn font-bold btn-light-primary btn-sm">Sair</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

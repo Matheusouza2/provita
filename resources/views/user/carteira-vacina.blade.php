@@ -13,13 +13,13 @@
             </header>
 
             <div class="page-heading">
-                <h3>Início</h3>
+                <h3>Carteira de Vacina</h3>
             </div>
             <div class="page-content">
                 <section class="row">
                     <div class="col-12 col-lg-9">
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-sm-12 col-md-6 col-lg-4">
                                 @if(count($image) >= 2)
                                     <div class="card collapse">
                                 @else
@@ -48,8 +48,18 @@
                                                     <div class="form-group">
                                                         <label for="nickname"></label>
                                                         <select name="apelido" class="form-control" id="nickname">
-                                                            <option value="carteira-vacina-frente">Frente</option>
-                                                            <option value="carteira-vacina-verso">Verso</option>
+                                                            @if ($image != null)
+                                                                @foreach ($image as $images)
+                                                                    @if ($images->apelido != 'carteira-vacina-frente')
+                                                                        <option value="carteira-vacina-frente">Frente</option>
+                                                                    @elseif ($images->apelido != 'carteira-vacina-verso')
+                                                                        <option value="carteira-vacina-verso">Verso</option>
+                                                                    @endif
+                                                                @endforeach
+                                                            @else
+                                                                <option value="carteira-vacina-frente">Frente</option>
+                                                                <option value="carteira-vacina-verso">Verso</option>
+                                                            @endif
                                                         </select>
                                                     </div>
                                                 </div>
@@ -57,8 +67,7 @@
                                             <div class="row">
                                                 <div class="col-12 text-right">
                                                     <button type="submit" class="btn btn-light-success" data-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Enviar</span>
+                                                        <span class="d-sm-block">Enviar</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -71,7 +80,7 @@
                             @if ($image != null)
                                 @foreach ($image as $item)
                                     @if ($item->apelido == 'carteira-vacina-frente')
-                                        <div class="col-6">
+                                        <div class="col-sm-12 col-md-8 col-lg-6">
                                             <div class="card">
                                                 <div class="card-header">
                                                     <h4>Carteira de Vacinação (Frente)</h4>
@@ -84,12 +93,13 @@
                                                     </div>
                                                     <div class="row justify-content-center align-items-center">
                                                         <a href="javascript:void(0)" onclick="downloadArchive('{{ asset('storage/images/'.Auth::user()->id.'/'.$item->nome) }}', '{{ $item->apelido }}')" class="btn btn-info mt-4">Download do arquivo</a>
+                                                        <a href="{{ route('carteiraVacinacaoDel', [$item->id]) }}" class="btn btn-danger mt-4 ml-4">Excluir foto</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>  
                                     @else
-                                        <div class="col-6">
+                                        <div class="col-sm-12 col-md-8 col-lg-6">
                                             <div class="card">
                                                 <div class="card-header">
                                                     <h4>Carteira de Vacinação (Verso)</h4>
@@ -102,6 +112,7 @@
                                                     </div>
                                                     <div class="row justify-content-center align-items-center">
                                                         <a href="javascript:void(0)" onclick="downloadArchive('{{ asset('storage/images/'.Auth::user()->id.'/'.$item->nome) }}', '{{ $item->apelido }}')" class="btn btn-info mt-4">Download do arquivo</a>
+                                                        <a href="{{ route('carteiraVacinacaoDel', [$item->id]) }}" class="btn btn-danger mt-4 ml-4">Excluir foto</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,13 +139,26 @@
                     </div>
                     <div class="col-12 col-lg-3">
                         <div class="card">
-                            <div class="card-body py-6 px-5">
-                                <div class="d-flex align-items-center">
-                                    <div class="ms-3 name">
-                                        <h5 class="font-bold">Usuario Logado</h5>
-                                    </div>
-                                    <div class="col-lg-6">
-                                      <a href="/logout" class="btn btn-block font-bold btn-light-primary btn-sm">Sair</a>
+                            <div class="card-body">
+                                <div class="align-items-center">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6 col-lg-8">
+                                            <h5 class="font-bold">{{ Auth::user()->nome }}</h5>
+                                            @php
+                                                $mask = '###.###.###-##';
+                                                $str = Auth::user()->cpf;
+                                                $str = str_replace(" ","",$str);
+                                                for($i=0;$i<strlen($str);$i++){
+                                                    $mask[strpos($mask,"#")] = $str[$i];
+                                                }
+                                            @endphp     
+                                            <small>CPF:{{ $mask }}</small>
+                                        </div>
+                                        <div class="col-sm-2 col-md-2 col-lg-4 ">
+                                            <div class="text-right">
+                                                <a href="/logout" class="btn font-bold btn-light-primary btn-sm">Sair</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

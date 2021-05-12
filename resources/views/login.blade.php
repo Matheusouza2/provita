@@ -33,7 +33,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="form-control-label" for="doc">CPF</label>
-                                        <input type="text" value="{{ old('cpf') }}" id="" name="cpf" class="form-control" placeholder="CPF">
+                                        <input type="text" value="{{ old('cpf') }}" id="doc" name="cpf" class="form-control" placeholder="CPF">
                                         @error('cpf')
                                             <div class="alert-danger">{{ $message }}</div>
                                         @enderror

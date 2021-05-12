@@ -13,13 +13,13 @@
             </header>
 
             <div class="page-heading">
-                <h3>Início</h3>
+                <h3>2ª Dose</h3>
             </div>
             <div class="page-content">
                 <section class="row">
                     <div class="col-12 col-lg-9">
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-sm-8 col-md-6 col-lg-4">
                                 <div class="card">
                                     <div class="card-header">
                                         <h4>Envio da foto</h4>
@@ -28,19 +28,26 @@
                                         <form action="{{ route('uploadImage') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <input type="hidden" value="2dose" name="apelido">
-                                            <div class="custom-file mt-4">
-                                                <input type="file" class="custom-file-input" id="customFile" name="image" required>
-                                                <label class="custom-file-label" for="customFile">Procurar Imagem</label>
-                                                <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="custom-file mt-4">
+                                                        <input type="file" class="custom-file-input" id="customFile" name="image" required>
+                                                        <label class="custom-file-label" for="customFile">Procurar Imagem</label>
+                                                        <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
+                                                    </div>
+                                                    <div class="mt-2">
+                                                        <span class="text-muted" id="archives"></span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="mt-2">
-                                                <span class="text-muted" id="archives"></span>
-                                            </div>
-                                            <div class="text-right mt-4">
-                                                <button type="submit" class="btn btn-light-success" data-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Enviar</span>
-                                                </button>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="text-right mt-4">
+                                                        <button type="submit" class="btn btn-light-success">
+                                                            <span class="d-sm-block">Enviar</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -48,7 +55,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-sm-12 col-md-8 col-lg-6">
                                 <div class="card">
                                     <div class="card-header">
                                         <h4>Vacina do Codvid 2ª Dose</h4>
@@ -62,6 +69,7 @@
                                             </div>
                                             <div class="row justify-content-center align-items-center">
                                                 <a href="javascript:void(0)" onclick="downloadArchive('{{ asset('storage/images/'.Auth::user()->id.'/'.$image[0]->nome) }}', '{{ $image[0]->apelido }}')" class="btn btn-info mt-4">Download do arquivo</a>
+                                                <a href="{{ route('carteiraVacinacaoDel', [$image[0]->id]) }}" class="btn btn-danger mt-4 ml-4">Excluir foto</a>
                                             </div>
                                         @else
                                             <div class="row justify-content-center align-items-center">
@@ -75,13 +83,26 @@
                     </div>
                     <div class="col-12 col-lg-3">
                         <div class="card">
-                            <div class="card-body py-6 px-5">
-                                <div class="d-flex align-items-center">
-                                    <div class="ms-3 name">
-                                        <h5 class="font-bold">Usuario Logado</h5>
-                                    </div>
-                                    <div class="col-lg-6">
-                                      <a href="/logout" class="btn btn-block font-bold btn-light-primary btn-sm">Sair</a>
+                            <div class="card-body">
+                                <div class="align-items-center">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6 col-lg-8">
+                                            <h5 class="font-bold">{{ Auth::user()->nome }}</h5>
+                                            @php
+                                                $mask = '###.###.###-##';
+                                                $str = Auth::user()->cpf;
+                                                $str = str_replace(" ","",$str);
+                                                for($i=0;$i<strlen($str);$i++){
+                                                    $mask[strpos($mask,"#")] = $str[$i];
+                                                }
+                                            @endphp     
+                                            <small>CPF:{{ $mask }}</small>
+                                        </div>
+                                        <div class="col-sm-2 col-md-2 col-lg-4 ">
+                                            <div class="text-right">
+                                                <a href="/logout" class="btn font-bold btn-light-primary btn-sm">Sair</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

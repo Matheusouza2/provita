@@ -4,6 +4,53 @@
     <div id="app">
         @include('templates.menuadmin')
         <!-- End SideBar-->
+        <!-- Start Modal Laboratorio -->
+        <div class="modal fade text-left" id="lab" tabindex="-1" aria-labelledby="myModalLabel160" style="display: none" aria-modal="true" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-color">
+                        <h5 class="modal-title white" id="myModalLabel160">
+                            Cadastrar Laboratório
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{route('cadLab')}}" method="POST" class="needs-validation" novalidate>
+                            @csrf
+                            <div class="form-group mb-3 col-lg-8">
+                                <label class="form-control-label" for="cnpj">CNPJ</label>
+                                <div class="input-group input-group-merge input-group-alternative">
+                                  <input class="form-control" name="cnpj" id="cnpj" required>
+                                  <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="razao_social" id="razao_social" value="">
+                            <input type="hidden" name="nome_fantasia" id="nome_fantasia" value="">
+                            <input type="hidden" name="logradouro" id="logradouro" value="">
+                            <input type="hidden" name="bairro" id="bairro" value="">
+                            <input type="hidden" name="numero" id="numero" value="">
+                            <input type="hidden" name="cidade" id="cidade" value="">
+                            <input type="hidden" name="uf" id="uf" value="">
+                            <input type="hidden" name="contato" id="contato" value="">
+                            <div class="form-group mb-3 ml-0">
+                                <label id="dados"></label>
+                            </div>
+
+                            <div class="text-right">
+                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Cancelar</span>
+                                </button>
+                                <button type="submit" class="btn btn-light-success ml-1">
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Enviar</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal Laboratorio -->
         <!-- Start Modal Exames-->
         <div class="modal fade text-left" id="primary" tabindex="-1" aria-labelledby="myModalLabel160" style="display: none" aria-modal="true" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
@@ -14,31 +61,40 @@
                         </h5>
                     </div>
                     <div class="modal-body">
-                        <form action="/admin" method="get" class="needs-validation" novalidate>
+                        <form action="{{ route('envioExame') }}" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group mb-3 col-lg-8">
-                                <label class="form-control-label" for="medico">Paciente</label>
-                                <div class="input-group input-group-merge input-group-alternative">
-                                  <select class="form-control" name="doctor" id="medico" required></select>
+                                <label class="form-control-label" for="paciente">Paciente</label>
+                                <div class="input-group">
+                                  <select class="form-control" name="paciente" id="paciente" required></select>
                                   <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
                                 </div>
                             </div>
                             <div class="form-group mb-3 col-lg-8">
                                 <label class="form-control-label" for="lab">Laboratório</label>
-                                <div class="input-group input-group-merge input-group-alternative">
-                                  <select class="form-control" name="lab" id="lab" required></select>
+                                <div class="input-group">
+                                  <select class="form-control" name="laboratorio" id="laboratorio" required></select>
                                   <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
                                 </div>
                             </div>
                             <div class="form-group mb-3 col-lg-8">
                                 <label class="form-control-label" for="customFile">Exame</label>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile" required>
+                                    <input type="file" class="custom-file-input" name="exame" id="customFile" required>
                                     <label class="custom-file-label" for="customFile">Procurar Exame</label>
                                     <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
                                 </div>
                             </div>
                             <div>
                                 <span class="text-muted" id="archives"></span>
+                            </div>
+                            
+                            <div class="form-group mb-3 col-lg-8">
+                                <label class="form-control-label" for="nome">Nome</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="nome" name="nomeExame" placeholder="Dê um nome ao exame" required>
+                                    <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
+                                </div>
                             </div>
                             <div class="text-right">
                                 <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
@@ -178,8 +234,8 @@
                                         <h5 class="font-bold">{{ Auth::user()->nome }}</h5>
                                     </div>
                                     <div class="col-lg-6">
-                                      <a href="" class="btn btn-block font-bold btn-light-primary btn-sm">Cadastrar Laboratório</a>
-                                      <a href="javascript:void(0)" class="btn btn-block font-bold btn-light-info btn-sm" data-toggle="modal" data-target="#primary">Enviar Exame</a>
+                                      <a href="javascript:void(0)" class="btn font-bold btn-light-primary btn-sm" data-toggle="modal" data-target="#lab">Cadastrar Laboratório</a>
+                                      <a href="javascript:void(0)" class="btn font-bold btn-light-info btn-sm mt-3" data-toggle="modal" data-target="#primary">Enviar Exame</a>
                                     </div>
                                 </div>
                             </div>
@@ -220,4 +276,73 @@
         </div>
     </div>
 </body>    
+@stop
+
+@section('script')
+<script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script defer>
+    $(document).ready(function(){
+       $('#cnpj').mask('00.000.000/0000-00');
+   });
+</script>
+@if (session()->has('success'))
+<script defer>
+    Swal.fire({
+        title: 'Tudo OK !!',
+        text: '{{ session()->get('success') }}',
+        icon: 'success',
+    });
+</script>
+@elseif(session()->has('erro'))
+<script defer>
+    Swal.fire({
+        title: 'Ooops...',
+        text: '{{ session()->get('erro') }}',
+        icon: 'error',
+    });
+</script>
+@endif
+<script defer>
+    $('#paciente').select2({
+	language: "pt-BR",
+	placeholder: 'Digite o Nome do Paciente ou o CPF',
+	ajax:{
+	  url: "{{ route('showPaciente') }}",
+	  dataType: "json",
+	  processResults: function (data) {
+		return {
+		  results:  $.map(data, function (item) {
+			return {
+			  text: item.nome,
+			  id: item.id
+			}
+		  })
+		};
+	  },
+	  cache: true,
+	}
+  });
+  $('#laboratorio').select2({
+	language: "pt-BR",
+	placeholder: 'Digite o Nome Fantasia do Laboratório',
+	ajax:{
+	  url: "{{ route('showLabs') }}",
+	  dataType: "json",
+	  processResults: function (data) {
+		return {
+		  results:  $.map(data, function (item) {
+			return {
+			  text: item.nome_fantasia,
+			  id: item.id
+			}
+		  })
+		};
+	  },
+	  cache: true,
+	}
+  });
+</script>
 @endsection

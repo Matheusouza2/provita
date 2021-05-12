@@ -24,12 +24,12 @@
     </p>
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
-            <div class="col-xl-6 order-xl-1">
+            <div class="col-xl-8 col-md-12 col-sm-12 order-xl-1">
                 <div class="card">
                     <div class="card-body">
                         <form action="{{ route('register') }}" method="post" class="needs-validation" novalidate>
                             @csrf
-                            <div class="row justify-content-center align-items-center">
+                            <div class="row align-items-center">
                                 <div class="col-lg-8">
                                     <div class="form-group">
                                         <label class="form-control-label" for="nome">Nome</label>
@@ -167,8 +167,8 @@
                                         <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
                                     </div>
                                 </div>
-
-                                <div class="col-lg-12">
+                                <div class="col-12"><hr></div>
+                                <div class="col-lg-5">
                                     <div class="form-group">
                                         <label class="form-control-label" for="pwd">Senha</label>
                                         <input type="password" value="{{ old('senha') }}" id="pwd" name="password" class="form-control" placeholder="Senha" required>

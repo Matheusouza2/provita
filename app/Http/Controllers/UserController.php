@@ -49,6 +49,7 @@ class UserController extends Controller
         $request['cpf'] = str_replace(array('.','-'), '', $request['cpf']);
         $data = explode('/', $request['nascimento']);
         $request['nascimento'] = $data[2].'-'.$data[1].'-'.$data[0];
+        $request['cep'] = str_replace('-', '', $request['cep']);
         
         if(User::where('cpf', $request['cpf'] )->exists()){
             return redirect()->back()->withErrors(['erro' => 'O CPF digitado já se encontra cadastrado no nosso sistema!']);
@@ -94,9 +95,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return response()->json(User::all(), 200);
     }
 
     /**

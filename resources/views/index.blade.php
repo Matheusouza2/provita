@@ -40,7 +40,7 @@
 		<a class="text-sm-left" href="#">Política de privacidade</a>
 		<a class="text-sm-left" href="/termos-uso" target="_blank">Termos de uso</a>
 		<a class="legal-links" href="/contato" target="_blank">Contato</a>
-		<a class="legal-links" href="https://youfound.com.br" target="_blank">Agência web</a>
+		<a class="legal-links" href="#" target="_blank">MatheuSouzaDev</a>
 		
 		<!----float-button---->
 
@@ -54,7 +54,12 @@
 					</a>
 				</li>
 				<li>
-					<a href="https://api.whatsapp.com/send?phone=5511947303098 &text=Olá%20Provita%20pode%20me%20ajudar%20?" target="_blank">
+					<a href="https://www.instagram.com/invites/contact/?i=1xd1ixvwx8n9z&utm_content=lzg5lm5" target="_blank">
+						<i class="fab fa-instagram fa-2x"></i>
+					</a>
+				</li>
+				<li>
+					<a href="https://api.whatsapp.com/send?phone=5511947303098&text=Olá%20Provita%20pode%20me%20ajudar%20?" target="_blank">
 						<i class="fab fa-whatsapp fa-2x"></i>
 					</a>
 				</li>

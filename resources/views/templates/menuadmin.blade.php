@@ -6,25 +6,25 @@
                 <a href="/admin"><img src="{{ asset('site/img/logo-white.svg') }}" alt="Logo"></a>
                 </div>
                 <div class="toggler">
-                <a href="#" class="sidebar-hide d-xl-none d-block text-white"><i class="fal fa-times"></i></a>
+                <a href="javascript:void(0)" class="sidebar-hide d-xl-none d-block text-white"><i class="fal fa-times"></i></a>
                 </div>
             </div>
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
-                <li class="sidebar-item active">
+                <li class="sidebar-item" id="admin">
                 <a href="{{ route('adminIndex') }}" class='sidebar-link'>
                     <i class="fas fa-home"></i>
                     <span>Início</span>
                 </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item" id="pacientes">
                 <a href="{{ route('pacientes') }}" class='sidebar-link'>
                     <i class="fas fa-procedures"></i>
                     <span>Pacientes</span>
                 </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item" id="labs">
                 <a href="{{ route('labs') }}" class='sidebar-link'>
                     <i class="fas fa-vial"></i>
                     <span>Laboratórios</span>

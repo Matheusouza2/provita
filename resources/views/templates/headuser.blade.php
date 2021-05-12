@@ -17,4 +17,21 @@
 
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('user/js/script.js') }}"></script>
+@if(session()->has('success'))
+	<script>
+		Swal.fire({
+			title: 'Tudo OK !!',
+			text: '{{ session()->get('success') }}',
+			icon: 'success',
+		});
+	</script>
+@elseif(session()->has('error'))
+	<script>
+		Swal.fire({
+			title: 'Algo deu errado !!',
+			text: '{{ session()->get('success') }}',
+			icon: 'error',
+		});
+	</script>
+@endif
 </html>

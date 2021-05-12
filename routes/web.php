@@ -54,8 +54,13 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     })->name('adminIndex');
 
     Route::get('/pacientes', 'AdminController@pacientes')->name('pacientes');
+    Route::get('/paciente/show', 'UserController@show')->name('showPaciente');
 
-    Route::get('/laboratorios', 'AdminController@labs')->name('labs');
+    Route::get('/laboratorios', 'LaboratorioController@labs')->name('labs');
+    Route::post('/laboratorio/put', 'LaboratorioController@store')->name('cadLab');
+    Route::get('/laboratorio/show', 'LaboratorioController@show')->name('showLabs');
+
+    Route::post('/envio/exame', 'ExameController@store')->name('envioExame');
 });
 
 /**
@@ -78,6 +83,7 @@ Route::middleware(['auth', 'user'])->prefix('usuario')->group(function(){
     Route::get('/carteira-vacinacao', 'UserController@carteiraVacina')->name('carteiraVacina');
 
     
-    //Rota para upload de arquivos
-    Route::post('usuario/arquivo/upload', 'ArquivosController@UploadImage')->name('uploadImage');
+    //Rota para manipulação de arquivos
+    Route::post('/arquivo/upload', 'ArquivosController@UploadImage')->name('uploadImage');
+    Route::get('carteira-vacinacao/del/{id}', 'ArquivosController@deleteImage')->name('carteiraVacinacaoDel');
 });

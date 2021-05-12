@@ -121,10 +121,11 @@ var url = window.location.href;
             lista.classList.add('active');
 			break;
 }
-		
-$('#customFile')[0].addEventListener("change", function(){
-	$('#archives').html($('#customFile').val().replace(/C:\\fakepath\\/i, ''));
-});
+if (absoluto != 'usuario'){
+	$('#customFile')[0].addEventListener("change", function(){
+		$('#archives').html($('#customFile').val().replace(/C:\\fakepath\\/i, ''));
+	});
+}
 (function () {
 'use strict'
 

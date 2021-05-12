@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -19,8 +20,14 @@ class ArquivosController extends Controller
         return back()->with('image',$imageName);
     }
 
-    public function getImg(Type $var = null)
+    public function deleteImage(Request $request)
     {
-        
+        $image = DB::select('select * from arquivos where id = ?', [$request->id]);
+
+        File::delete(public_path('storage/images/'.Auth::user()->id.'/'.$image[0]->nome));
+
+        DB::delete('delete from arquivos where id = ?', [$image[0]->id]);
+
+        return redirect()->back()->with('success', 'Foto excluida com sucesso, envie uma nova imagem do seu cartão de vacina.');
     }
 }
