@@ -17,9 +17,20 @@ class CreateExamesTable extends Migration
             $table->id();
             $table->string('nome');
             $table->string('apelido');
-            $table->integer('paciente');
-            $table->integer('laboratorio');
+            $table->bigInteger('paciente')->unsigned();
+            $table->bigInteger('laboratorio')->unsigned();
             $table->date('data');
+            $table->foreign('paciente')
+                ->references('id')
+                ->on('usuarios')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreign('laboratorio')
+                ->references('id')
+                ->on('laboratorios')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

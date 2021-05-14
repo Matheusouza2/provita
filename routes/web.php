@@ -49,18 +49,17 @@ Route::get('/logout', function () {
  * ROTAS DO ADMIN
  */
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
-    Route::get('/', function () {
-        return view('admin.index');
-    })->name('adminIndex');
+    Route::get('/', 'AdminController@index')->name('adminIndex');
 
     Route::get('/pacientes', 'AdminController@pacientes')->name('pacientes');
     Route::get('/paciente/show', 'UserController@show')->name('showPaciente');
 
-    Route::get('/laboratorios', 'LaboratorioController@labs')->name('labs');
+    Route::get('/laboratorios', 'LaboratorioController@show')->name('labs');
     Route::post('/laboratorio/put', 'LaboratorioController@store')->name('cadLab');
     Route::get('/laboratorio/show', 'LaboratorioController@show')->name('showLabs');
 
     Route::post('/envio/exame', 'ExameController@store')->name('envioExame');
+    Route::get('exame/del/{exame}', 'ExameController@destroy')->name('exameDel');
 });
 
 /**
@@ -69,9 +68,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 Route::middleware(['auth', 'user'])->prefix('usuario')->group(function(){
         
     //Rota para o Index
-    Route::get('/', function () {
-        return view('user.index');
-    })->name('userIndex'); 
+    Route::get('/', 'UserController@index')->name('userIndex'); 
     
     //Rota para a tela da primeira dose do Covid
     Route::get('/primeira-dose', 'UserController@dose1')->name('dose1');

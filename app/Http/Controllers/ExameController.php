@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Exame;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
+use File;
 
 class ExameController extends Controller
 {
@@ -32,7 +33,16 @@ class ExameController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $exameName = time().'.'.$request->file('exame')->extension();
+        
+        $request['nome'] = $exameName;
+        $request['data'] = Carbon::now();
+
+        $request->exame->storeAs('public/images/'.$request->paciente, $exameName);
+
+        Exame::create($request->except(['_token']));
+        
+        return back()->with('success', 'Exame enviado com sucesso !');
     }
 
     /**
@@ -77,6 +87,10 @@ class ExameController extends Controller
      */
     public function destroy(Exame $exame)
     {
-        //
+        File::delete(public_path('storage/images/'.$exame->paciente.'/'.$exame->nome));
+
+        $exame->delete();
+
+        return redirect()->back()->with('success', 'Exame excluido com sucesso, envie um novo arquivo.');
     }
 }

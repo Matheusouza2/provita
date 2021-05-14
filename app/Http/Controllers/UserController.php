@@ -65,7 +65,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $examesList = DB::select('select exames.*, lab.nome_fantasia from exames INNER JOIN laboratorios lab ON exames.laboratorio = lab.id WHERE paciente = ?', [Auth::user()->id]);
+
+        return view('user.index')->with(['exames' => $examesList]);
     }
 
     /**
@@ -95,9 +97,19 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Request $request)
     {
-        return response()->json(User::all(), 200);
+        $data = [];
+        
+        if($request->has('q')){
+            $search = $request->q;
+            $data = User::select("id","nome","cpf")
+                    ->where('nivel', '-1')
+                    ->where('cpf','LIKE',"%$search%")
+                    ->orWhere('nome', 'LIKE', "%$search%")
+                    ->get();
+        }
+        return response()->json($data);
     }
 
     /**

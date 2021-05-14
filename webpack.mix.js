@@ -25,6 +25,7 @@ mix.styles([
     'resources/js/admin/perfect-scrollbar.min.js',
     'resources/js/admin/dashboard.js',
     'resources/js/admin/main.js',
+    'resources/js/user/custom.js',
 ], 'public/adm/js/script.js')
 .scripts([
     'resources/js/user/perfect-scrollbar.min.js',

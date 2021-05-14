@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Laboratorio;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class LaboratorioController extends Controller
@@ -45,10 +46,24 @@ class LaboratorioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Request $request)
     {
         
-        return response()->json(Laboratorio::all(), 200);
+        $data = [];
+        
+        if($request->has('q')){
+            $search = $request->q;
+            $data = Laboratorio::select("id","nome_fantasia")
+                    ->where('nome_fantasia', 'LIKE', "%$search%")
+                    ->get();
+            return response()->json($data);
+        }
+
+        $labs = Laboratorio::all();
+        foreach($labs as $lab){
+            $lab->cnpj = UserController::mascara('##.###.###/####-##', $lab->cnpj);
+        }
+        return view('admin.laboratorios')->with('labs', Laboratorio::all());
 
     }
 

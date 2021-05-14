@@ -19,120 +19,29 @@
                 <section class="row">
                     <div class="col-12 col-lg-9">
                         <div class="row">
+                            @foreach ($exames as $exame)
                             <div class="col-sm-6 col-md-6 col-lg-4">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Nome do Exame</h4>
+                                        <h4>{{ $exame->apelido }}</h4>
                                     </div>
                                     <div class="card-body">
                                         <div class="row justify-content-center align-items-center">
-                                            <a href=""><img src="{{ asset('site/img/pdf-icon.png') }}" width="100em;" alt=""></a>
+                                            <a href="javascript:void(0)" onclick="downloadArchive('{{ asset('storage/images/'.$exame->paciente.'/'.$exame->nome) }}', '{{ $exame->apelido }}')">
+                                                <img src="{{ asset('site/img/pdf-icon.png') }}" width="100em;" alt="">
+                                            </a>
                                         </div>
                                         <div class="row justify-content-center align-items-center">
-                                            <a href="">Download do arquivo</a>
+                                            <a href="javascript:void(0)" onclick="downloadArchive('{{ asset('storage/images/'.$exame->paciente.'/'.$exame->nome) }}', '{{ $exame->apelido }}')" class="btn btn-info">Download do Exame</a>
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                        nome do Laboratório <br>
-                                        data
+                                        <strong>Laboratório: </strong>{{ $exame->nome_fantasia }} <br>
+                                        <strong>Data: </strong> {{ date( 'd/m/Y' , strtotime($exame->data)) }}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Nome do Exame</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href=""><img src="{{ asset('site/img/pdf-icon.png') }}" width="100em;" alt=""></a>
-                                        </div>
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href="">Download do arquivo</a>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        nome do Laboratório <br>
-                                        data
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Nome do Exame</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href=""><img src="{{ asset('site/img/pdf-icon.png') }}" width="100em;" alt=""></a>
-                                        </div>
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href="">Download do arquivo</a>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        nome do Laboratório <br>
-                                        data
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Nome do Exame</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href=""><img src="{{ asset('site/img/pdf-icon.png') }}" width="100em;" alt=""></a>
-                                        </div>
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href="">Download do arquivo</a>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        nome do Laboratório <br>
-                                        data
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Nome do Exame</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href=""><img src="{{ asset('site/img/pdf-icon.png') }}" width="100em;" alt=""></a>
-                                        </div>
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href="">Download do arquivo</a>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        nome do Laboratório <br>
-                                        data
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Nome do Exame</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href=""><img src="{{ asset('site/img/pdf-icon.png') }}" width="100em;" alt=""></a>
-                                        </div>
-                                        <div class="row justify-content-center align-items-center">
-                                            <a href="">Download do arquivo</a>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        nome do Laboratório <br>
-                                        data
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-12 col-lg-3">

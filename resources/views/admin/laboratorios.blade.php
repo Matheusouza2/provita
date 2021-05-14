@@ -12,7 +12,7 @@
             </header>
 
             <div class="page-heading">
-                <h3>Pacientes Cadastrados</h3>
+                <h3>Laboratórios Cadastrados</h3>
             </div>
             <div class="page-content">
                 <section class="row">
@@ -21,38 +21,29 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Pacientes</h4>
+                                        <h4>Laboratórios</h4>
                                     </div>
                                     <div class="card-body">
                                        <div class="table-responsive">
                                            <table class="table table-hover table-md">
                                                 <thead>
                                                     <tr>
-                                                        <th>Nome</th>
-                                                        <th>CPF</th>
-                                                        <th>Data de Nascimento</th>
-                                                        <th>Diabetes</th>
-                                                        <th>Hipertensão</th>
+                                                        <th>Nome Fantasia</th>
+                                                        <th>CNPJ</th>
+                                                        <th>Logradouro</th>
+                                                        <th>Cidade</th>
+                                                        <th>UF</th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($pacientes as $paciente)
+                                                    @foreach ($labs as $lab)
                                                         <tr>
-                                                            <td class="col-auto">{{ $paciente->nome }}</td>
-                                                            <td class="col-auto">{{ $paciente->cpf }}</td>
-                                                            <td class="col-auto">{{  date( 'd/m/Y' , strtotime($paciente->nascimento)) }}</td>
-                                                            @if($paciente->diabetico)
-                                                                <td class="col-auto">Sim</td>
-                                                            @else
-                                                                <td class="col-auto">Não</td>
-                                                            @endif
-                                                            @if($paciente->hipertensao)
-                                                                <td class="col-auto">Sim</td>
-                                                            @else
-                                                                <td class="col-auto">Não</td>
-                                                            @endif
-                                                            <td><a href="" title="Baixar exame"><i class="fas fa-download"></i></a></td>
+                                                            <td class="col-auto">{{ $lab->nome_fantasia }}</td>
+                                                            <td class="col-auto">{{ $lab->cnpj }}</td>
+                                                            <td class="col-auto">{{ $lab->logradouro }}</td>
+                                                            <td class="col-auto">{{ $lab->cidade }}</td>
+                                                            <td class="col-auto">{{ $lab->uf }}</td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -132,4 +123,4 @@
         }
       });
     </script>
-@endsection
+    @endsection

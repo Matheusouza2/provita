@@ -147,31 +147,15 @@ Array.prototype.slice.call(forms)
 
 $("#cnpj").blur(function () {
 	var cnpj = $(this).val().replace(/\D/g, '');
-	$.ajax({
-		method: "GET",
-		url: "https://www.receitaws.com.br/v1/cnpj/"+cnpj+"/?callback=?",
-		success: function(data){
-			console.log(data);
-		}
-	})
+	$.getJSON("http://www.receitaws.com.br/v1/cnpj/" + cnpj + "?callback=?", function (dados) {
+		$('#dados').delay(2000).html('Razão Social: '+dados.nome+'<br>'+'Nome Fantasia: '+dados.fantasia+'<br>'+'Logradouro: '+dados.logradouro+'<br>'+'Bairro: '+dados.bairro+', '+dados.numero+'<br>'+'Local: '+dados.municipio+', '+dados.uf+'<br> Contato: '+dados.telefone).addClass('line typing-animation');
+		$('#razao_social').val(dados.nome);
+		$('#nome_fantasia').val(dados.fantasia);
+		$('#logradouro').val(dados.logradouro);
+		$('#numero').val(dados.numero);
+		$('#bairro').val(dados.bairro);
+		$('#cidade').val(dados.municipio);
+		$('#uf').val(dados.uf);
+		$('#contato').val(dados.telefone);
+	});
 });
-
-$('#medico').select2({
-	language: "pt-BR",
-	placeholder: 'Digite o Nome do Médico',
-	ajax:{
-	  url: "",
-	  dataType: "json",
-	  processResults: function (data) {
-		return {
-		  results:  $.map(data, function (item) {
-			return {
-			  text: item.nome,
-			  id: item.id
-			}
-		  })
-		};
-	  },
-	  cache: true,
-	}
-  });

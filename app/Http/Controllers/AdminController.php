@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -15,7 +16,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+
+        $pacientes = DB::select('select count(id) as pacientes from usuarios where nivel = ?', [-1]);
+        $laboratorios = DB::select('select count(id) as laboratorios from laboratorios', [0]);
+        $exames = DB::select('select count(id) as exames from exames');
+        $examesList = DB::select('select exames.*, lab.nome_fantasia, usuarios.nome as nome_paciente from exames INNER JOIN laboratorios lab ON exames.laboratorio = lab.id INNER JOIN usuarios ON exames.paciente = usuarios.id ORDER BY exames.id DESC LIMIT 12');
+
+        return view('admin.index')->with(['pacientes' => $pacientes[0], 'laboratorios' => $laboratorios[0], 'exames' => $exames[0], 'exames2' => $examesList]);
     }
 
     /**

@@ -13,11 +13,29 @@
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
 		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
 </head> 
+<body>
 @yield('content')
 
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('adm/js/script.js') }}"></script>
 
 @yield('script')
-
+@if(session()->has('success'))
+	<script>
+		Swal.fire({
+			title: 'Tudo OK !!',
+			text: '{{ session()->get('success') }}',
+			icon: 'success',
+		});
+	</script>
+@elseif(session()->has('erro'))
+	<script>
+		Swal.fire({
+			title: 'Ooops...',
+			text: '{{ session()->get('erro') }}',
+			icon: 'error',
+		});
+	</script>
+@endif
+</body>
 </html>
