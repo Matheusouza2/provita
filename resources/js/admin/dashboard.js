@@ -157,5 +157,7 @@ $("#cnpj").blur(function () {
 		$('#cidade').val(dados.municipio);
 		$('#uf').val(dados.uf);
 		$('#contato').val(dados.telefone);
+
+		$('#btn-cad-lab').removeAttribute(disabled);
 	});
 });

@@ -24,7 +24,7 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="stats-icon purple">
-                                                  <i class="far fa-users-medical"></i>
+                                                  <i class="fad fa-users-medical"></i>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-6 col-lg-3 col-md-6">
                                 <div class="card">
-                                    <div class="card-body px-3 py-4-5">
+                                    <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="stats-icon blue">

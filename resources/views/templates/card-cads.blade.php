@@ -10,11 +10,16 @@
             <div class="modal-body">
                 <form action="{{route('cadLab')}}" method="POST" class="needs-validation" novalidate>
                     @csrf
-                    <div class="form-group mb-3 col-lg-8">
-                        <label class="form-control-label" for="cnpj">CNPJ</label>
-                        <div class="input-group input-group-merge input-group-alternative">
-                          <input class="form-control" name="cnpj" id="cnpj" required>
-                          <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
+                    <div class="row">
+                        <div class="form-group mb-3 col-sm-8 col-md-8 col-lg-8">
+                            <label class="form-control-label" for="cnpj">CNPJ</label>
+                            <div class="input-group input-group-merge input-group-alternative">
+                            <input class="form-control" name="cnpj" id="cnpj" required>
+                            <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 mt-4">
+                            <a href="javascript:void(0)" class="btn btn-primary"><i class="fal fa-search"></i></a>
                         </div>
                     </div>
                     <input type="hidden" name="razao_social" id="razao_social" value="">
@@ -29,14 +34,12 @@
                         <label id="dados"></label>
                     </div>
 
-                    <div class="text-right">
+                    <div class="text-right" id="buttons-modal-cad" style="display: none;">
                         <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                            <i class="bx bx-x d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Cancelar</span>
+                            <span class="d-sm-block">Cancelar</span>
                         </button>
-                        <button type="submit" class="btn btn-light-success ml-1">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Enviar</span>
+                        <button type="submit" class="btn btn-light-success ml-1" id="btn-cad-lab">
+                            <span class="d-sm-block">Cadastrar</span>
                         </button>
                     </div>
                 </form>
