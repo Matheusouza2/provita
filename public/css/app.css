@@ -220,8 +220,13 @@ th {
 }
 
 label {
-  display: inline-block;
-  margin-bottom: 0.5rem;
+  width: 100%;
+	display: block;
+	font-family: "Roboto", arial, sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	color: #999;
+	margin-bottom: 4px;
 }
 
 button {
@@ -10001,4 +10006,41 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.login-provita {
+	background: #eee;
+  	padding: 15px 0;
+}
+
+.logo-login {
+	display: block;
+	width: 160px;
+	height: auto;
+	margin: 0 auto 20px;
+}
+
+.logo-img {
+	height: 75px;
+}
+
+.logo {
+
+	margin: 20px 0 20px 0;
+	
+}
+
+.subtitulo {
+	width: 450px;
+	margin: 0 auto 20px;
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	text-align: center;
+	line-height: 30px;
+	color: #747b82;
+}
+
+.titulo {
+	margin: 50px 0 50px 0;
 }

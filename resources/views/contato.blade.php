@@ -60,7 +60,7 @@
                             </span>
 
                             <span class="txt2">
-                                Rua Beatriz, 132 - Vila Madalena - São Paulo - CEP: 05445-040
+                                AV ITABERABA 534 – SL 04 - NOSSA SENHORA DO O – São Paulo – CEP: 02734-000
                             </span>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                             </span>
 
                             <span class="txt3">
-                                contato@provita.com.br
+                                SAC@PROVITA.COM.BR
                             </span>
                         </div>
                     </div>
@@ -114,46 +114,21 @@
                             </span>
                         </div>
                     </div>
+                    <div class="dis-flex size1 p-b-47">
+                        <a style="color: white; margin-right: 10px;" href="https://www.facebook.com/Provita-100141064824344/" target="_blank">
+                            <i class="fab fa-facebook-square fa-2x"></i>
+                        </a>
+                            
+                        <a style="color: white; margin-right: 10px;" href="https://www.instagram.com/invites/contact/?i=1xd1ixvwx8n9z&utm_content=lzg5lm5" target="_blank">
+                            <i class="fab fa-instagram fa-2x"></i>
+                        </a>
+                            
+                        <a style="color: white; margin-right: 10px;" href="https://api.whatsapp.com/send?phone=5511947303098&text=Olá%20Provita%20pode%20me%20ajudar%20?" target="_blank">
+                            <i class="fab fa-whatsapp fa-2x"></i>
+                        </a>                        
+                    </div>
                 </div>
             </div>
         </div>
-
-	<div id="dropDownSelect1"></div>
-
-
-<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-	<script>
-		$(".selection-2").select2({
-			minimumResultsForSearch: 20,
-			dropdownParent: $('#dropDownSelect1')
-		});
-	</script>
-<!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-23581568-13');
-    </script>
-    <script src="./js/simple-form.js"></script>
-    <script src="./js/script.js"></script>
-
 </body>
 @endsection

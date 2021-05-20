@@ -34,7 +34,12 @@ $(document).ready(function () {
                         $("#uf").attr('readonly', true);
                     } //end if.
                     else {
-                        Swal.fire('Erro ao identificar o CEP', 'CEP não encontrado, coloque um CEP valido e tente novamente', 'error')
+                        Swal.fire('Erro ao identificar o CEP', 'CEP não encontrado, coloque um CEP valido e tente novamente', 'error');
+                        $("#cep").val("");
+                        $("#logradouro").val("");
+                        $("#bairro").val("");
+                        $("#cidade").val("");
+                        $("#uf").val("");
                     }
 
                 });

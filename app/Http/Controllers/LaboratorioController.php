@@ -31,6 +31,10 @@ class LaboratorioController extends Controller
         $request['password'] = Hash::make('123');
         $request['cnpj'] = str_replace(array('.','-','/'), '', $request['cnpj']);
         $request['contato'] = str_replace(array('(','-',')', ' '), '', $request['contato']);
+        $contato = explode('/', $request['contato']);
+        if(count($contato) > 1){
+            $request['contato'] = $contato[0];
+        }
 
         if(Laboratorio::where('cnpj', $request['cnpj'] )->exists()){
             return redirect()->back()->with('erro', 'O CNPJ digitado já se encontra cadastrado na nossa base de dados!');

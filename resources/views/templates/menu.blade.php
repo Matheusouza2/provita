@@ -18,6 +18,12 @@
                         <span>Início</span>
                     </a>
                 </li>
+                <li class="sidebar-item" id="carteira-vacinacao">
+                    <a href="{{ route('carteiraVacina') }}" class='sidebar-link'>
+                        <i class="fal fa-file-medical-alt"></i>
+                        <span>Exames</span>
+                    </a>
+                </li>
                 <li class="sidebar-item" id="primeira-dose">
                     <a href="{{ route('dose1') }}" class='sidebar-link'>
                         <i class="fal fa-syringe"></i><sup>1</sup>
@@ -36,6 +42,12 @@
                         <span>Carteira de Vacinação</span>
                     </a>
                 </li>
+                <li class="sidebar-item" id="carteira-vacinacao">
+                    <a href="{{ route('carteiraVacina') }}" class='sidebar-link'>
+                        <i class="fal fa-file-medical-alt"></i>
+                        <span>Meus Dados</span>
+                    </a>
+                </li>
                 <li class="sidebar-item">
                     <a href="/logout" class='sidebar-link'>
                         <i class="fal fa-sign-out"></i>
@@ -47,7 +59,10 @@
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="row">
                         <div class="float-start">
-                            <a href="" class="text-white ml-4 text-sm">Política de Privacidade</a> <a href="" class="text-white ml-4 text-sm">Termos de Uso</a>
+                            <a href="https://api.whatsapp.com/send?phone=5511947303098&text=Olá%20Provita%20pode%20me%20ajudar%20?" class="text-white ml-4 text-sm" target="_blank">
+                                <i class="fab fa-whatsapp"></i> (11) 9 4730-3098
+                            </a>
+                            <a href="" class="text-white ml-4 text-sm">Termos de Uso</a>
                         </div>                        
                     </div>
                 </div>

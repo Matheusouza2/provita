@@ -36,11 +36,9 @@
 
 	<!--footer-->
 	<footer>
-		
-		<a class="text-sm-left" href="#">Política de privacidade</a>
 		<a class="text-sm-left" href="/termos-uso" target="_blank">Termos de uso</a>
 		<a class="legal-links" href="/contato" target="_blank">Contato</a>
-		<a class="legal-links" href="#" target="_blank">MatheuSouzaDev</a>
+		<a class="legal-links" href="https://api.whatsapp.com/send?phone=5587988754442&text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20um%20sistema" target="_blank">Desenvolvido por Matheus Souza</a>
 		
 		<!----float-button---->
 
