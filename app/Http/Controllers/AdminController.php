@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use PDF;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\DB;
 
@@ -98,5 +99,11 @@ class AdminController extends Controller
             $paciente->cpf = UserController::mascara('###.###.###-##', $paciente->cpf);
         }
         return view('admin.pacientes')->with('pacientes', $pacientes);
+    }
+
+    public function fichaPaciente(User $user)
+    {
+        $pdf = PDF::loadView('templates.fichaPaciente', compact('user'));
+        return $pdf->download('ficha.pdf');
     }
 }

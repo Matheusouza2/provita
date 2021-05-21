@@ -52,7 +52,7 @@
                                                             @else
                                                                 <td class="col-auto">Não</td>
                                                             @endif
-                                                            <td><a href="" title="Baixar exame"><i class="fas fa-download"></i></a></td>
+                                                            <td><a href="{{ route('fichaPaciente',[$paciente->id]) }}" title="Baixar Ficha"><i class="fas fa-download"></i></a></td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>

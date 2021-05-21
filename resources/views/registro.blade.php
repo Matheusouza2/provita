@@ -198,7 +198,7 @@
                                             <path d="M3.49371 4.22065L5.55387 0.79198" />
                                         </svg>
                                     </label>
-                                    <span style="float:left; margin: -1.65em 0em 0em 1.8em; min-width:70vw;">Declaro que li e aceito os <a href="javascript:void(0)" data-toggle="modal" data-target="#termos" style="display: inline-block">Termos de uso.</a></span>
+                                    <span style="float:left; margin: -1.9em 0em 0em 1.8em;">Declaro que li e aceito os <a href="javascript:void(0)" data-toggle="modal" data-target="#termos" style="display: inline-block">Termos de uso.</a></span>
                                 </div> 
                             </div>
                             <br>

@@ -53,6 +53,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     Route::get('/pacientes', 'AdminController@pacientes')->name('pacientes');
     Route::get('/paciente/show', 'UserController@show')->name('showPaciente');
+    Route::get('/paciente/ficha/{user}', 'AdminController@fichaPaciente')->name('fichaPaciente');
 
     Route::get('/laboratorios', 'LaboratorioController@show')->name('labs');
     Route::post('/laboratorio/put', 'LaboratorioController@store')->name('cadLab');
@@ -78,6 +79,10 @@ Route::middleware(['auth', 'user'])->prefix('usuario')->group(function(){
 
     //Rota para a tela da carteira de vacinação
     Route::get('/carteira-vacinacao', 'UserController@carteiraVacina')->name('carteiraVacina');
+
+    Route::get('/exames', 'UserController@exames')->name('examesUser');
+
+    Route::get('/informacoes', 'UserController@perfil')->name('perfilUser');
 
     
     //Rota para manipulação de arquivos

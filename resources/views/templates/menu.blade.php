@@ -19,8 +19,8 @@
                     </a>
                 </li>
                 <li class="sidebar-item" id="carteira-vacinacao">
-                    <a href="{{ route('carteiraVacina') }}" class='sidebar-link'>
-                        <i class="fal fa-file-medical-alt"></i>
+                    <a href="{{ route('examesUser') }}" class='sidebar-link'>
+                        <i class="fal fa-notes-medical"></i>
                         <span>Exames</span>
                     </a>
                 </li>
@@ -43,8 +43,8 @@
                     </a>
                 </li>
                 <li class="sidebar-item" id="carteira-vacinacao">
-                    <a href="{{ route('carteiraVacina') }}" class='sidebar-link'>
-                        <i class="fal fa-file-medical-alt"></i>
+                    <a href="{{ route('perfilUser') }}" class='sidebar-link'>
+                        <i class="fal fa-user"></i>
                         <span>Meus Dados</span>
                     </a>
                 </li>

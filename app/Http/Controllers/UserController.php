@@ -166,6 +166,17 @@ class UserController extends Controller
         return view('user.carteira-vacina')->with('image', $image);
     }
 
+    public function exames()
+    {
+        $examesList = DB::select('select exames.*, lab.nome_fantasia from exames INNER JOIN laboratorios lab ON exames.laboratorio = lab.id WHERE paciente = ?', [Auth::user()->id]);
+        return view('user.exames', compact('examesList'));
+    }
+
+    public function perfil()
+    {
+        return view('user.perfil');
+    }
+
     public static function mascara($mask, $str){
         $str = str_replace(" ","",$str);
         for($i=0;$i<strlen($str);$i++){
