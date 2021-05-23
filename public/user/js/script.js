@@ -141,6 +141,15 @@ var url = window.location.href;
 			lista = document.querySelector('#carteira-vacinacao');
             lista.classList.add('active');
 			break;
+		case 'exames':
+			alert('hello');
+			lista = document.querySelector('#exm');
+            lista.classList.add('active');
+			break;
+		case 'informacoes':
+			lista = document.querySelector('#informacoes');
+			lista.classList.add('active');
+			break;
 }
 if (absoluto != 'usuario'){
 	$('#customFile')[0].addEventListener("change", function(){
