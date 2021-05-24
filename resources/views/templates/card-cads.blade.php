@@ -34,7 +34,7 @@
                         <label id="dados"></label>
                     </div>
 
-                    <div class="text-right" id="buttons-modal-cad" style="display: none;">
+                    <div class="text-right" id="buttons-modal-cad" style="visibility: hidden;">
                         <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                             <span class="d-sm-block">Cancelar</span>
                         </button>

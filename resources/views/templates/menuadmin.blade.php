@@ -41,7 +41,7 @@
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="row">
                         <div class="float-start">
-                            <a href="https://api.whatsapp.com/send?phone=5511947303098&text=Olá%20Provita%20pode%20me%20ajudar%20?" class="text-white ml-4 text-sm" target="_blank">
+                            <a href="https://api.whatsapp.com/send?phone=5511978101120&text=Olá%20Provita%20pode%20me%20ajudar%20?" class="text-white ml-4 text-sm" target="_blank">
                                 <i class="fab fa-whatsapp"></i> (11) 9 4730-3098
                             </a>
                             <a href="" class="text-white ml-4 text-sm">Termos de Uso</a>

@@ -38,7 +38,7 @@
 	<footer>
 		<a class="text-sm-left" href="/termos-uso" target="_blank">Termos de uso</a>
 		<a class="legal-links" href="/contato" target="_blank">Contato</a>
-		<a class="legal-links" href="https://api.whatsapp.com/send?phone=5587988754442&text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20um%20sistema" target="_blank">Desenvolvido por Matheus Souza</a>
+		<a class="legal-links" href="https://www.instagram.com/sertsoft/" target="_blank">Desenvolvido por SertSoft</a>
 		
 		<!----float-button---->
 
@@ -57,7 +57,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="https://api.whatsapp.com/send?phone=5511947303098&text=Olá%20Provita%20pode%20me%20ajudar%20?" target="_blank">
+					<a href="https://api.whatsapp.com/send?phone=5511978101120&text=Olá%20Provita%20pode%20me%20ajudar%20?" target="_blank">
 						<i class="fab fa-whatsapp fa-2x"></i>
 					</a>
 				</li>

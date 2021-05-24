@@ -31,6 +31,8 @@ class LaboratorioController extends Controller
         $request['password'] = Hash::make('123');
         $request['cnpj'] = str_replace(array('.','-','/'), '', $request['cnpj']);
         $request['contato'] = str_replace(array('(','-',')', ' '), '', $request['contato']);
+        $request['contato'] = $request['contato'] != null?$request['contato']:'0';
+        $request['nome_fantasia'] = $request['nome_fantasia'] != null?$request['nome_fantasia'] : $request['razao_social'];
         $contato = explode('/', $request['contato']);
         if(count($contato) > 1){
             $request['contato'] = $contato[0];

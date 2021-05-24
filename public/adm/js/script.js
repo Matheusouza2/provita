@@ -168,7 +168,7 @@ Array.prototype.slice.call(forms)
 
 $("#cnpj").blur(function () {
 	var cnpj = $(this).val().replace(/\D/g, '');
-	$.getJSON("http://www.receitaws.com.br/v1/cnpj/" + cnpj + "?callback=?", function (dados) {
+	$.getJSON("https://www.receitaws.com.br/v1/cnpj/" + cnpj + "?callback=?", function (dados) {
 		$('#dados').delay(2000).html('Razão Social: '+dados.nome+'<br>'+'Nome Fantasia: '+dados.fantasia+'<br>'+'Logradouro: '+dados.logradouro+'<br>'+'Bairro: '+dados.bairro+', '+dados.numero+'<br>'+'Local: '+dados.municipio+', '+dados.uf+'<br> Contato: '+dados.telefone).addClass('line typing-animation');
 		$('#razao_social').val(dados.nome);
 		$('#nome_fantasia').val(dados.fantasia);
@@ -179,7 +179,7 @@ $("#cnpj").blur(function () {
 		$('#uf').val(dados.uf);
 		$('#contato').val(dados.telefone);
 
-		$('#btn-cad-lab').removeAttribute(disabled);
+		$('#buttons-modal-cad').css("visibility","visible");
 	});
 });
 function slideToggle(t,e,o){0===t.clientHeight?j(t,e,o,!0):j(t,e,o)}function slideUp(t,e,o){j(t,e,o)}function slideDown(t,e,o){j(t,e,o,!0)}function j(t,e,o,i){void 0===e&&(e=400),void 0===i&&(i=!1),t.style.overflow="hidden",i&&(t.style.display="block");var p,l=window.getComputedStyle(t),n=parseFloat(l.getPropertyValue("height")),a=parseFloat(l.getPropertyValue("padding-top")),s=parseFloat(l.getPropertyValue("padding-bottom")),r=parseFloat(l.getPropertyValue("margin-top")),d=parseFloat(l.getPropertyValue("margin-bottom")),g=n/e,y=a/e,m=s/e,u=r/e,h=d/e;window.requestAnimationFrame(function l(x){void 0===p&&(p=x);var f=x-p;i?(t.style.height=g*f+"px",t.style.paddingTop=y*f+"px",t.style.paddingBottom=m*f+"px",t.style.marginTop=u*f+"px",t.style.marginBottom=h*f+"px"):(t.style.height=n-g*f+"px",t.style.paddingTop=a-y*f+"px",t.style.paddingBottom=s-m*f+"px",t.style.marginTop=r-u*f+"px",t.style.marginBottom=d-h*f+"px"),f>=e?(t.style.height="",t.style.paddingTop="",t.style.paddingBottom="",t.style.marginTop="",t.style.marginBottom="",t.style.overflow="",i||(t.style.display="none"),"function"==typeof o&&o()):window.requestAnimationFrame(l)})}
