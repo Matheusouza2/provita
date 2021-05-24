@@ -118,9 +118,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $user = User::where('id', Auth::user()->id)->first();
+        return view('user.perfil', compact('user'));
     }
 
     /**
@@ -130,9 +131,35 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $request->cpf = str_replace(array('.', '-'), '', $request->cpf);
+        $request->cep = str_replace('-', '', $request->cep);
+        $data = explode('/', $request['nascimento']);
+        $request->nascimento = $data[2].'-'.$data[1].'-'.$data[0];
+
+        $user->nome = $request->nome;
+        $user->cpf = $request->cpf;
+        $user->rg = $request->rg;
+        $user->nascimento = $request->nascimento;
+        $user->email = $request->email;
+        $user->sexo = $request->sexo;
+        $user->diabetico = $request->diabetico;
+        $user->hipertensao = $request->hipertensao;
+        $user->cep = $request->cep;
+        $user->logradouro = $request->logradouro;
+        $user->numero = $request->numero;
+        $user->bairro = $request->bairro;
+        $user->cidade = $request->cidade;
+        $user->uf = $request->uf;
+
+        if($request->password != null){
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'Dados alterados com sucesso !!');
     }
 
     /**
@@ -170,11 +197,6 @@ class UserController extends Controller
     {
         $examesList = DB::select('select exames.*, lab.nome_fantasia from exames INNER JOIN laboratorios lab ON exames.laboratorio = lab.id WHERE paciente = ?', [Auth::user()->id]);
         return view('user.exames', compact('examesList'));
-    }
-
-    public function perfil()
-    {
-        return view('user.perfil');
     }
 
     public static function mascara($mask, $str){

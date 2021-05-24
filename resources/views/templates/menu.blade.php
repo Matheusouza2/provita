@@ -1,3 +1,4 @@
+<input type="hidden" name="" id="customFile">
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active">
         <div class="sidebar-header"> 
@@ -18,7 +19,7 @@
                         <span>Início</span>
                     </a>
                 </li>
-                <li class="sidebar-item" id="carteira-vacinacao">
+                <li class="sidebar-item" id="exm">
                     <a href="{{ route('examesUser') }}" class='sidebar-link'>
                         <i class="fal fa-notes-medical"></i>
                         <span>Exames</span>
@@ -42,7 +43,7 @@
                         <span>Carteira de Vacinação</span>
                     </a>
                 </li>
-                <li class="sidebar-item" id="carteira-vacinacao">
+                <li class="sidebar-item" id="informacoes">
                     <a href="{{ route('perfilUser') }}" class='sidebar-link'>
                         <i class="fal fa-user"></i>
                         <span>Meus Dados</span>

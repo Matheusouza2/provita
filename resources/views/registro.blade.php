@@ -84,8 +84,8 @@
                                         <label class="form-control-label" for="sexo">Sexo</label>
                                         <select name="sexo" class="form-control" id="sexo" required>
                                             <option value="">Selecione</option>
-                                            <option value="h">Homem</option>
-                                            <option value="m">Mulher</option>
+                                            <option value="m">Masculino</option>
+                                            <option value="f">Feminino</option>
                                             <option value="i">Prefiro não dizer</option>
                                         </select>
                                         <div class="invalid-feedback">Campo de preenchimento obrigatório</div>

@@ -82,7 +82,11 @@ Route::middleware(['auth', 'user'])->prefix('usuario')->group(function(){
 
     Route::get('/exames', 'UserController@exames')->name('examesUser');
 
-    Route::get('/informacoes', 'UserController@perfil')->name('perfilUser');
+    //Rota de apresentação das informações do usuario
+    Route::get('/informacoes', 'UserController@edit')->name('perfilUser');
+
+    //Rota de alteração dos dados do usuário
+    Route::put('/informacoes/update/{user}', 'userController@update')->name('alteruser');
 
     
     //Rota para manipulação de arquivos

@@ -17,6 +17,7 @@
 
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('user/js/script.js') }}"></script>
+@yield('script')
 @if(session()->has('success'))
 	<script>
 		Swal.fire({
