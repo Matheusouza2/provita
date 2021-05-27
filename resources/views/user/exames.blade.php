@@ -35,7 +35,8 @@
                                                         <td>{{ $exame->nome_fantasia }}</td>
                                                         <td>{{ $exame->apelido }}</td>
                                                         <td>{{ date( 'd/m/Y' , strtotime($exame->data)) }}</td>
-                                                        <td><a href="javascript:void(0)" onclick="downloadArchive('{{ asset('storage/images/'.$exame->paciente.'/'.$exame->nome) }}', '{{ $exame->apelido }}')"><i class="fa fa-download"></i></a></td>
+                                                        <td><a href="javascript:void(0)" onclick="downloadArchive('{{ asset('storage/images/'.$exame->paciente.'/'.$exame->nome) }}', '{{ $exame->apelido }}')" title="Baixar Exame"><i class="fa fa-download"></i></a>
+                                                            <a href="{{ asset('storage/images/'.$exame->paciente.'/'.$exame->nome) }}" target="_blank" class="ml-3" title="Vizualizar Exame"><i class="fas fa-eye"></i></a></td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
