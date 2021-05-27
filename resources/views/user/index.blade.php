@@ -32,7 +32,8 @@
                                             </a>
                                         </div>
                                         <div class="row justify-content-center align-items-center">
-                                            <a href="javascript:void(0)" onclick="downloadArchive('{{ asset('storage/images/'.$exame->paciente.'/'.$exame->nome) }}', '{{ $exame->apelido }}')" class="btn btn-info">Download do Exame</a>
+                                            <a href="javascript:void(0)" onclick="downloadArchive('{{ asset('storage/images/'.$exame->paciente.'/'.$exame->nome) }}', '{{ $exame->apelido }}')" class="btn btn-info"><i class="fas fa-download"></i> Download do Exame</a>
+                                            <a href="{{ asset('storage/images/'.$exame->paciente.'/'.$exame->nome) }}" target="_blank" class="btn btn-warning ml-3" style="color: #000"><i class="fas fa-eye"></i> Vizualizar</a>
                                         </div>
                                     </div>
                                     <div class="card-footer">

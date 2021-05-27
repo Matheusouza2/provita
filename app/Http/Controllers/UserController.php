@@ -206,4 +206,10 @@ class UserController extends Controller
         }
         return $mask;
     }
+
+    public function mostrar()
+    {
+        $user = User::all();
+        return json_encode($user);
+    }
 }
