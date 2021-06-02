@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +47,18 @@ Route::get('/logout', function () {
     Auth::logout();
     return redirect('/admin');
 });
+/**
+ * ROTAS PARA RESET DE PASSWORD
+ */
+Route::get('/esqueci-senha', 'UserController@passwordRequest')->middleware('guest')->name('password.request');
+
+Route::post('/esqueci-senha', 'UserController@passwordEmail')->middleware('guest')->name('password.email');
+
+Route::get('/reset-password/{token}', 'UserController@passwordReset')->middleware('guest')->name('password.reset');
+
+Route::post('/reset-password', 'UserController@passwordUpdate')->middleware('guest')->name('password.update');
+
+//---------FIM DAS ROTAS DE RESET
 /**
  * ROTAS DO ADMIN
  */

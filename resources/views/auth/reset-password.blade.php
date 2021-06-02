@@ -19,55 +19,63 @@
     </div>
     <a href="/" class="logo-login"><img class="logo-img" src="{{asset('site/img/logo.svg')}}" alt="logo-provita" style="justify-content: center;"></a>
     <p class="subtitulo">
-        A Provita facilita você a se conectar e ter acesso a todos 
-        os seus documentos na área da saúde
+        Digite sua nova senha.
     </p>
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
             <div class="col-xl-4 order-xl-1">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('login') }}" method="post" novalidate class="needs-validation">
+                        <form action="{{ route('password.update') }}" method="post" novalidate class="needs-validation">
                             @csrf
+                            <input type="hidden" name="token" value="{{$token}}">
                             <div class="row justify-content-center align-items-center">
+
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="doc">CPF</label>
-                                        <input type="text" value="{{ old('cpf') }}" id="doc" name="cpf" class="form-control" placeholder="CPF" required>
+                                        <label class="form-control-label" for="email">Digite seu E-mail</label>
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required>
+                                        <div class="invalid-feedback">
+                                            O campo E-mail é obrigatório
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="password">Digite a nova Senha</label>
+                                        <input type="password" id="password" name="password" class="form-control" placeholder="Senha" required>
                                         <div class="invalid-feedback">
                                             O campo senha é obrigatório
                                         </div>
-                                        @error('cpf')
-                                            <div class="alert-danger">{{ $message }}</div>
-                                        @enderror
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row justify-content-center align-items-center">
+
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="pwd">Senha</label>
-                                        <input type="password" value="{{ old('senha') }}" id="pwd" name="password" class="form-control" placeholder="Senha" required>
+                                        <label class="form-control-label" for="password_confirmation">Confirme a senha</label>
+                                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Senha" required>
                                         <div class="invalid-feedback">
-                                            O campo senha é obrigatório
+                                            O campo de confirmação de senha é obrigatório
                                         </div>
-                                        @error('password')
-                                            <div class="alert-danger">{{ $message }}</div>
-                                        @enderror
                                     </div>
                                 </div>
+                                @error('password')
+                                    <div class="alert-danger">{{ $message }}</div>
+                                @enderror
+                                @error('email')
+                                    <div class="alert-danger">{{ $message }}</div>
+                                @enderror
+                                @error('token')
+                                    <div class="alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-12 mb-4">
-                                    <button type="submit" class="btn-acesso text-white">Entrar</button>
+                                    <button type="submit" class="btn-acesso text-white">Alterar Senha</button>
                                 </div>
-                                <small><a href="{{ route('password.request') }}">Esqueci minha Senha</a></small>
                             </div>
                         </form>
-                    </div>
-                    <div class="card-footer">
-                        <pre class="text-muted text-sm-center">Ainda não possui uma conta?</pre>
-                        <a class="text-muted text-sm-center" title="Clique para se cadastrar no sistema" href="/cadastrar">Faça o seu cadastro.</a>
                     </div>
                 </div>
             </div>
