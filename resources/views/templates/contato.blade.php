@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>Provita - Armazém de dados</title>
+	<title>Provita</title>
 		<meta name="description" content="A Provita facilita você a se conectar e ter acesso a todos os seus documentos na área da saúde">
 		<meta name="autor" content="fernando-lopes">
 		<meta charset="utf-8">
