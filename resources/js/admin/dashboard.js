@@ -116,8 +116,8 @@ var url = window.location.href;
             lista = document.querySelector('#labs');
             lista.classList.add('active');
             break;
-        case 'calendario':
-        	lista = document.querySelector('#segunda-dose');
+        case 'publicidade':
+        	lista = document.querySelector('#publicidade');
             lista.classList.add('active');
             break;
 }

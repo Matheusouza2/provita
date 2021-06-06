@@ -30,6 +30,12 @@
                     <span>Laboratórios</span>
                 </a>
                 </li>
+                <li class="sidebar-item" id="publicidade">
+                    <a href="{{ route('pubView') }}" class='sidebar-link'>
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Publicidade</span>
+                    </a>
+                    </li>
                 <li class="sidebar-item">
                 <a href="/logout" class='sidebar-link'>
                     <i class="fal fa-sign-out"></i>
