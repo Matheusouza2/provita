@@ -24,9 +24,7 @@ Route::get('/', function () {
 
 Route::get('/entrar', 'SiteController@entrar')->name('entrar');
 
-Route::get('/cadastrar', function(){
-    return view('registro');
-});
+Route::get('/cadastrar', 'SiteController@registro');
 
 Route::get('/termos-uso', function(){
     return view('termos-uso');
@@ -75,6 +73,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     Route::post('/envio/exame', 'ExameController@store')->name('envioExame');
     Route::get('exame/del/{exame}', 'ExameController@destroy')->name('exameDel');
+
+    Route::get('/publicidade', 'UserController@publicidadeView')->name('pubView');
+
+    Route::post('/publicidade/cadastrar', 'UserController@cadastrarPublicidade')->name('cadPub');
+
+    Route::get('publicidade/delete/{id}', 'UserController@deletePub')->name('deletePub');
 });
 
 /**

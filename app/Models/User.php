@@ -31,6 +31,7 @@ class User extends Authenticatable
         'logradouro',
         'bairro',
         'numero',
+        'complemento',
         'cidade',
         'uf',
         'email',

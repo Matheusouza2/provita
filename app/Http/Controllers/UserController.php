@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
+use File;
 
 class UserController extends Controller
 {
@@ -152,6 +154,7 @@ class UserController extends Controller
         $user->cep = $request->cep;
         $user->logradouro = $request->logradouro;
         $user->numero = $request->numero;
+        $user->complemento = $request->complemento;
         $user->bairro = $request->bairro;
         $user->cidade = $request->cidade;
         $user->uf = $request->uf;
@@ -266,5 +269,35 @@ class UserController extends Controller
         return $status == Password::PASSWORD_RESET
                     ? redirect()->route('entrar')->with('success', __($status))
                     : back()->withErrors(['erro' => [__($status)]]);
+    }
+
+    public function publicidadeView()
+    {
+        $pubs = DB::select('Select * from publicidade');
+        return view('admin.publicidade', compact('pubs'));
+    }
+
+    public function cadastrarPublicidade(Request $request)
+    {
+        $pubName = time().'.'.$request->file('publicidade')->extension();
+        
+        $request['nome'] = $pubName;
+
+        $request->publicidade->storeAs('public/images/publicidade', $pubName);
+
+        DB::insert('insert into publicidade (nome, descricao, created_at) values (?, ?, ?)', [$request->nome, $request->descricao, Carbon::now()]);
+
+        return redirect()->back()->with('success', 'Publicidade cadastrada com sucesso!');
+    }
+
+    public function deletePub($id)
+    {
+        $image = DB::select('select * from publicidade where id = ?', [$id]);
+
+        File::delete(public_path('storage/images/publicidade/'.$image[0]->nome));
+
+        DB::delete('delete from publicidade where id = ?', [$id]);
+        
+        return redirect()->back()->with('success', 'Publicidade deletada com sucesso!');
     }
 }

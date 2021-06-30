@@ -4,16 +4,16 @@
     <div class="row justify-content-center align-items-center">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="5000">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <h3>Publicidade.</h3>
-                    <!--<img class="d-block" src="{{ asset('site/img/logo.svg') }}" width="700px" height="150px" alt="First slide"> -->
-                </div>
-                <div class="carousel-item">
-                    <h3>Publicidade..</h3>
-                </div>
-                <div class="carousel-item">
-                    <h3>Publicidade...</h3>
-                </div>
+                @if (!empty($pubs))
+                    <div class="carousel-item active">
+                        <img class="d-block" src="{{ asset('storage/images/publicidade/'.$pubs[0]->nome) }}" alt="{{$pubs[0]->descricao}}">
+                    </div>
+                    @for ($i = 1; $i < count($pubs); $i++)
+                        <div class="carousel-item">
+                            <img class="d-block" src="{{ asset('storage/images/publicidade/'.$pubs[$i]->nome) }}" alt="{{$pubs[$i]->descricao}}">
+                        </div>
+                    @endfor
+                @endif
             </div>
         </div>
     </div>

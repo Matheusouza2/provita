@@ -143,8 +143,15 @@
                                                         <div class="invalid-feedback">Campo de preenchimento obrigatório</div>
                                                     </div>
                                                 </div>
-                
+
                                                 <div class="col-lg-5">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="complemento">Complemento</label>
+                                                        <input type="text" value="{{ $user->complemento }}" id="complemento" name="complemento" class="form-control" placeholder="Complemento">
+                                                    </div>
+                                                </div>
+                
+                                                <div class="col-lg-7">
                                                     <div class="form-group">
                                                         <label class="form-control-label" for="bairro">Bairro</label>
                                                         <input type="text" value="{{ $user->bairro }}" id="bairro" name="bairro" class="form-control" placeholder="Bairro" required>
