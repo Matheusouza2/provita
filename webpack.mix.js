@@ -21,6 +21,9 @@ mix.styles([
     'resources/css/site/reset.css',
     'resources/css/site/style.css'
 ], 'public/site/css/style.css')
+.styles([
+    'resources/css/sweetalert2.min.css'
+], 'public/css/sweetalert2.min.css')
 .scripts([
     'resources/js/admin/perfect-scrollbar.min.js',
     'resources/js/admin/dashboard.js',
@@ -33,6 +36,9 @@ mix.styles([
     'resources/js/user/main.js',
     'resources/js/user/custom.js',
 ], 'public/user/js/script.js')
+.scripts([
+    'resources/js/sweetalert2.all.min.js'
+], 'public/js/sweetalert.min.js')
 .version();
 
 mix.js('resources/js/app.js', 'public/js')

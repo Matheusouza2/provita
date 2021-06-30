@@ -9,13 +9,13 @@
 		<link rel="shortcut icon" href="{{ asset('site/img/favicon.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
-    <link rel="stylesheet" href="{{ asset('site/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('site/css/style.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head> 
 @yield('content')
 
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="{{ mix('js/app.js') }}"></script>
+<script src="{{ mix('js/sweetalert.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <script src="{{ asset('js/buscarcep.js') }}"></script>

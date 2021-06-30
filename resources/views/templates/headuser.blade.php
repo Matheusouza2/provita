@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 		<link rel="stylesheet" href="{{ asset('adm/css/style.css') }}">
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
-		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"/>
 </head> 
 @yield('content')
 
