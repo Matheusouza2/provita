@@ -42,7 +42,11 @@ class ExameController extends Controller
 
         Exame::create($request->except(['_token']));
         
-        return back()->with('success', 'Exame enviado com sucesso !');
+        return back()->with([
+            'title' => 'Tudo Certo!!',
+            'text' => 'Exame enviado com sucesso. ',
+            'icon' => 'success'
+        ]);
     }
 
     /**
@@ -91,6 +95,10 @@ class ExameController extends Controller
 
         $exame->delete();
 
-        return redirect()->back()->with('success', 'Exame excluido com sucesso, envie um novo arquivo.');
+        return redirect()->back()->with([
+            'title' => 'Exame Excluido !',
+            'text' => 'O Exame foi excluido da nossa base de dados !',
+            'icon' => 'success'
+        ]);
     }
 }

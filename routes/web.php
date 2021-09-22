@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Password;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/ 
 
 /**
  * ROTAS DO SITE
@@ -72,13 +72,25 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/laboratorio/show', 'LaboratorioController@show')->name('showLabs');
 
     Route::post('/envio/exame', 'ExameController@store')->name('envioExame');
-    Route::get('exame/del/{exame}', 'ExameController@destroy')->name('exameDel');
+    Route::get('/exame/del/{exame}', 'ExameController@destroy')->name('exameDel');
 
     Route::get('/publicidade', 'UserController@publicidadeView')->name('pubView');
-
     Route::post('/publicidade/cadastrar', 'UserController@cadastrarPublicidade')->name('cadPub');
+    Route::get('/publicidade/delete/{id}', 'UserController@deletePub')->name('deletePub');
 
-    Route::get('publicidade/delete/{id}', 'UserController@deletePub')->name('deletePub');
+    Route::get('/medicos', 'AdminController@medicos')->name('medicoIndex');
+    Route::get('/medico/cadastrar', 'MedicoController@create')->name('medicoCreate');
+    Route::post('/medico/salvar', 'MedicoController@store')->name('medicoStore');
+    Route::get('/medico/editar/{medico}', 'MedicoController@edit')->name('medicoEdit');
+    Route::put('/medico/alterar/{medico}', 'MedicoController@update')->name('medicoUpdate');
+    Route::delete('/medico/deletar', 'MedicoController@delete')->name('medicoDelete');
+
+    Route::get('/farmacias', 'AdminController@farmacias')->name('farmaciaIndex');
+    Route::get('/farmacia/cadastrar', 'FarmaciaController@create')->name('farmaciaCreate');
+    Route::post('/farmacia/salvar', 'FarmaciaController@store')->name('farmaciaStore');
+    Route::get('/farmacia/editar/{farmacia}', 'FarmaciaController@edit')->name('farmaciaEdit');
+    Route::put('/farmacia/alterar/{farmacia}', 'FarmaciaController@update')->name('farmaciaUpdate');
+    Route::delete('/farmacia/deletar', 'FarmaciaController@destroy')->name('farmaciaDelete');
 });
 
 /**

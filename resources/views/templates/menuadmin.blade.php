@@ -30,6 +30,18 @@
                     <span>Laboratórios</span>
                 </a>
                 </li>
+                <li class="sidebar-item" id="meds">
+                    <a href="{{ route('medicoIndex') }}" class='sidebar-link'>
+                        <i class="fas fa-user-md"></i>
+                        <span>Médicos</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-item" id="farma">
+                        <a href="{{ route('farmaciaIndex') }}" class='sidebar-link'>
+                            <i class="fas fa-pills"></i>
+                            <span>Farmácias</span>
+                        </a>
+                        </li>
                 <li class="sidebar-item" id="publicidade">
                     <a href="{{ route('pubView') }}" class='sidebar-link'>
                         <i class="fas fa-bullhorn"></i>

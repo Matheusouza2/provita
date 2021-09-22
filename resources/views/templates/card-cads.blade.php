@@ -113,10 +113,14 @@
 <!-- End Modal Exames -->
 
 <div class="card">
-    <div class="card-body py-6 px-5">
+    <div class="card-body py-6 px-8">
         <div class="d-flex align-items-center">
             <div class="ms-3 name">
-                <h5 class="font-bold">{{ Auth::user()->nome }}</h5>
+                @php
+                    $div = explode(' ', Auth::user()->nome);
+                    Auth::user()['nome'] = count($div) > 1?$div[0].' '.$div[1] : $div[0];
+                @endphp 
+                <h5 class="font-bold"><i class="fas fa-user"></i> {{ Auth::user()->nome }} </h5>
             </div>
             <div class="col-lg-6">
               <a href="javascript:void(0)" class="btn font-bold btn-light-primary btn-sm" data-toggle="modal" data-target="#laboratorioCad">Cadastrar Laboratório</a>

@@ -18,20 +18,12 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('user/js/script.js') }}"></script>
 @yield('script')
-@if(session()->has('success'))
+@if(session('icon'))
 	<script>
 		Swal.fire({
-			title: 'Tudo OK !!',
-			text: '{{ session()->get('success') }}',
-			icon: 'success',
-		});
-	</script>
-@elseif(session()->has('error'))
-	<script>
-		Swal.fire({
-			title: 'Algo deu errado !!',
-			text: '{{ session()->get('success') }}',
-			icon: 'error',
+			title: '{{ session()->get('title') }}',
+			text: '{{ session()->get('text') }}',
+			icon: '{{ session()->get('icon') }}',
 		});
 	</script>
 @endif

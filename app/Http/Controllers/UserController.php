@@ -165,7 +165,11 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->back()->with('success', 'Dados alterados com sucesso !!');
+        return redirect()->back()->with([
+            'title' => 'Dados Atualizados !',
+            'text' => 'Seus dados estão atualizados na nossa base.',
+            'icon' => 'success'
+        ]);
     }
 
     /**
@@ -287,7 +291,11 @@ class UserController extends Controller
 
         DB::insert('insert into publicidade (nome, descricao, created_at) values (?, ?, ?)', [$request->nome, $request->descricao, Carbon::now()]);
 
-        return redirect()->back()->with('success', 'Publicidade cadastrada com sucesso!');
+        return redirect()->back()->with([
+            'title' => 'Tudo certo !',
+            'text' => 'A publicidade foi cadastrada e já está na pagina de login.',
+            'icon' => 'success'
+        ]);
     }
 
     public function deletePub($id)
@@ -298,6 +306,10 @@ class UserController extends Controller
 
         DB::delete('delete from publicidade where id = ?', [$id]);
         
-        return redirect()->back()->with('success', 'Publicidade deletada com sucesso!');
+        return redirect()->back()->with([
+            'title' => 'Publicidade',
+            'text' => 'A publicidade selecionada foi excluida com sucesso !',
+            'icon' => 'success'
+        ]);
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use PDF;
 use App\Http\Controllers\UserController;
+use App\Models\Farmacia;
+use App\Models\Medico;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -105,5 +107,15 @@ class AdminController extends Controller
     {
         $pdf = PDF::loadView('templates.fichaPaciente', compact('user'));
         return $pdf->download('ficha.pdf');
+    }
+
+    public function farmacias()
+    {
+        return view('admin.farmacias')->with('farmacias',Farmacia::all());
+    }
+
+    public function medicos()
+    {
+        return view('admin.medicos')->with('medicos', Medico::all());
     }
 }

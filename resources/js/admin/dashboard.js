@@ -100,31 +100,14 @@ let optionsIndonesia = {
 	...optionsEurope,
 	colors: ['#dc3545'],
 }
+$('ul.menu').find('a[href="' + location.href + '"]').closest('li').addClass('active');
 var url = window.location.href;
-    var absoluto = url.split("/")[url.split("/").length - 1];
-	var lista = null;
-    switch (absoluto) {
-    	case 'admin':
-        	lista = document.querySelector('#admin');
-            lista.classList.add('active');
-            break;
-        case 'pacientes':
-            lista = document.querySelector('#pacientes');
-            lista.classList.add('active');
-            break;
-        case 'laboratorios':
-            lista = document.querySelector('#labs');
-            lista.classList.add('active');
-            break;
-        case 'publicidade':
-        	lista = document.querySelector('#publicidade');
-            lista.classList.add('active');
-            break;
+var absoluto = url.split("/")[url.split("/").length - 1];
+if(absoluto != 'medicos' || absoluto != 'farmacias'){
+	$('#customFile')[0].addEventListener("change", function(){
+		$('#archives').html($('#customFile').val().replace(/C:\\fakepath\\/i, ''));
+	});
 }
-		
-$('#customFile')[0].addEventListener("change", function(){
-	$('#archives').html($('#customFile').val().replace(/C:\\fakepath\\/i, ''));
-});
 
 (function () {
 'use strict'
@@ -153,11 +136,25 @@ $("#cnpj").blur(function () {
 		$('#nome_fantasia').val(dados.fantasia);
 		$('#logradouro').val(dados.logradouro);
 		$('#numero').val(dados.numero);
+		$('#cep').val(dados.cep);
 		$('#bairro').val(dados.bairro);
 		$('#cidade').val(dados.municipio);
 		$('#uf').val(dados.uf);
 		$('#contato').val(dados.telefone);
 
 		$('#btn-cad-lab').removeAttribute(disabled);
+	});
+});
+
+$('#cep').blur(function(){
+
+	var cep = $(this).val().replace(/\D/g, '');
+
+	$.getJSON("https://viacep.com.br/ws/"+cep+"/json/", function(dados){
+		$('#logradouro').val(dados.logradouro);
+		$('#numero').val(dados.numero);
+		$('#bairro').val(dados.bairro);
+		$('#cidade').val(dados.localidade);
+		$('#uf').val(dados.uf);
 	});
 });

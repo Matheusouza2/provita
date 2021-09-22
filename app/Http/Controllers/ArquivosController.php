@@ -28,6 +28,10 @@ class ArquivosController extends Controller
 
         DB::delete('delete from arquivos where id = ?', [$image[0]->id]);
 
-        return redirect()->back()->with('success', 'Foto excluida com sucesso, envie uma nova imagem do seu cartão de vacina.');
+        return redirect()->back()->with([
+            'title' => 'Foto excluida com sucesso !',
+            'text' => 'Envie uma nova foto do seu cartão de vacina.',
+            'icon' => 'success'
+        ]);
     }
 }
