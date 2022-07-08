@@ -31,6 +31,8 @@ class CreateUsuariosTable extends Migration
             $table->string('uf');            
             $table->string('password');
             $table->char('nivel');
+            $table->string('complemento')->nullable();
+            $table->string('remember_token')->nullable();
             $table->timestamps();
         });
     }

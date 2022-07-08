@@ -29,7 +29,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <h6 class="text-muted font-semibold text-capitalize">Pacientes cadastrados</h6>
-                                                <h6 class="font-extrabold mb-0">{{ $pacientes->pacientes }}</h6>
+                                                <h6 class="font-extrabold mb-0">{{ $pacientes }}</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -46,7 +46,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <h6 class="text-muted font-semibold text-capitalize">Laboratórios cadastrados</h6>
-                                                <h6 class="font-extrabold mb-0">{{ $laboratorios->laboratorios }}</h6>
+                                                <h6 class="font-extrabold mb-0">{{ $laboratorios }}</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <h6 class="text-muted font-semibold">Exames enviados</h6>
-                                                <h6 class="font-extrabold mb-0">{{ $exames->exames }}</h6>
+                                                <h6 class="font-extrabold mb-0">{{ $exames }}</h6>
                                             </div>
                                         </div>
                                     </div>

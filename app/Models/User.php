@@ -60,7 +60,7 @@ class User extends Authenticatable
 
     public function sendPasswordResetNotification($token)
     {
-    // Não esquece: use App\Notifications\ResetPassword;
+    // declarar: use App\Notifications\ResetPassword;
     $this->notify(new ResetPassword($token));
     }
 }
